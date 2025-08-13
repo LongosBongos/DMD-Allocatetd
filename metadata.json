@@ -1,0 +1,15 @@
+{
+  "name": "Die Mark Digital",
+  "symbol": "DMD",
+  "description": "Die Mark Digital ist ein SPL Token auf Solana, basierend auf einer sicheren Treasury- und Reward-Mechanik.",
+  "image": "https://s1.directupload.eu/images/250809/hrrmdi8v.jpg",
+  "attributes": [
+    { "trait_type": "Projekt", "value": "DMD Token" },
+    { "trait_type": "Netzwerk", "value": "Solana" },
+    { "trait_type": "Dezimalstellen", "value": "9" }
+  ],
+  "extensions": {
+    "website": "Work in Progress",
+    "twitter": "Work in Progress",
+  }
+}

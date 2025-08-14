@@ -1,15 +1,30 @@
 {
   "name": "Die Mark Digital",
   "symbol": "DMD",
-  "description": "Die Mark Digital ist ein SPL Token auf Solana, basierend auf einer sicheren Treasury- und Reward-Mechanik.",
-  "image": "https://s1.directupload.eu/images/250809/hrrmdi8v.jpg",
+  "description": "Die Mark Digital (DMD) ist ein SPL-Token auf Solana – digitale Wertmarke inspiriert von historischer deutscher Währung, kombiniert mit moderner Blockchain-Technologie.",
+  "seller_fee_basis_points": 0,
+  "image": "https://s1.directupload.eu/images/250809/hrmmdi8v.jpg",
+  "external_url": "https://github.com/LongosBongos/DMD-Allocated",
   "attributes": [
-    { "trait_type": "Projekt", "value": "DMD Token" },
-    { "trait_type": "Netzwerk", "value": "Solana" },
-    { "trait_type": "Dezimalstellen", "value": "9" }
+    { "trait_type": "Token Standard", "value": "SPL" },
+    { "trait_type": "Blockchain", "value": "Solana" },
+    { "trait_type": "Supply", "value": "150,000,000" },
+    { "trait_type": "Decimals", "value": "9" },
+    { "trait_type": "Category", "value": "Currency" }
   ],
-  "extensions": {
-    "website": "Work in Progress",
-    "twitter": "Work in Progress",
+  "properties": {
+    "files": [
+      {
+        "uri": "https://s1.directupload.eu/images/250809/hrmmdi8v.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "AqPFb5LWQuzKiyoKTX9XgUwsYW0FvpeE8E8uzQvnDTzT",
+        "share": 100
+      }
+    ]
   }
 }

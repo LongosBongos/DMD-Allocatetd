@@ -2,26 +2,24 @@
   "name": "Die Mark Digital",
   "symbol": "DMD",
   "description": "Die Mark Digital (DMD) – Der digitale Taler für die Zukunft.",
-  "image": "https://s1.directupload.net/images/250809/hrmdi8v.jpg",
+  "seller_fee_basis_points": 0,
+  "image": "https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png?raw=true",
   "attributes": [
     { "trait_type": "Projekt", "value": "Die Mark Digital" },
     { "trait_type": "Symbol", "value": "DMD" },
-    { "trait_type": "Supply", "value": "150,000,000" },
-    { "trait_type": "Decimals", "value": "9" }
+    { "trait_type": "Decimals", "value": "9" },
+    { "trait_type": "Supply", "value": "150,000,000" }
   ],
   "properties": {
     "files": [
       {
-        "uri": "https://s1.directupload.net/images/250809/hrmdi8v.jpg",
-        "type": "image/jpg"
+        "uri": "https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png?raw=true",
+        "type": "image/png"
       }
     ],
     "category": "image",
     "creators": [
-      {
-        "address": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT",
-        "share": 100
-      }
+      { "address": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT", "share": 100 }
     ]
   }
 }

@@ -1,14 +1,19 @@
 {
   "name": "Die Mark Digital",
   "symbol": "DMD",
-  "description": "Die Mark Digital (DMD) – Der digitale Taler für die Zukunft.",
+  "description": "Die Mark Digital (DMD) – Der digitale Taler für die Zukunft. Entwickelt auf Solana, mit Presale, Treasury und Belohnungssystemen für Investoren.",
   "seller_fee_basis_points": 0,
   "image": "https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png?raw=true",
+  "external_url": "https://dmd.digital", 
   "attributes": [
     { "trait_type": "Projekt", "value": "Die Mark Digital" },
     { "trait_type": "Symbol", "value": "DMD" },
     { "trait_type": "Decimals", "value": "9" },
-    { "trait_type": "Supply", "value": "150,000,000" }
+    { "trait_type": "Supply", "value": "150,000,000" },
+    { "trait_type": "Netzwerk", "value": "Solana Mainnet" },
+    { "trait_type": "Presale", "value": "5,500,000 DMD" },
+    { "trait_type": "Treasury Split", "value": "40%" },
+    { "trait_type": "Founder Split", "value": "60%" }
   ],
   "properties": {
     "files": [
@@ -19,7 +24,10 @@
     ],
     "category": "image",
     "creators": [
-      { "address": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT", "share": 100 }
+      {
+        "address": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT",
+        "share": 100
+      }
     ]
   }
 }

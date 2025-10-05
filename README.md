@@ -30,25 +30,32 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 
 ## 🌐 Offizielle Links
 
-- 🌍 **Website / App:** [https://longosbongos.github.io/Investor_App_DMD/](https://longosbongos.github.io/Investor_App_DMD/)  
-- 🧾 **Whitepaper:** [Google Drive](https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view)  
-- 📱 **Telegram:** [https://t.me/diemarkDigitaloffiziell](https://t.me/diemarkDigitaloffiziell)  
-- 🐦 **Twitter (X):** [https://x.com/DieMarkDigital](https://x.com/DieMarkDigital)  
-- 💻 **GitHub (Investor App):** [https://github.com/LongosBongos/Investor_App_DMD](https://github.com/LongosBongos/Investor_App_DMD)  
-- 📊 **DexScreener Pool:** [DMD/SOL Pair](https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2)  
+- 🌍 **Website / App:** https://longosbongos.github.io/Investor_App_DMD/  
+- 🧾 **Whitepaper:** https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view  
+- 📱 **Telegram:** https://t.me/diemarkDigitaloffiziell  
+- 🐦 **Twitter (X):** https://x.com/DieMarkDigital  
+- 💻 **GitHub (Investor App):** https://github.com/LongosBongos/Investor_App_DMD  
+- 📊 **DexScreener Pool:** https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2  
+- 🛡️ **Policy (Web):** https://longosbongos.github.io/DMD-Allocatetd/policy  
 
 ---
 
 ## 📄 Metadaten
 
 - **Logo (PNG):**  
-  [DMD.png (RAW)](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png)  
+  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png)  
+  - [RAW](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png)  
 
 - **Token Metadata JSON:**  
-  [metadata.json (RAW)](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json)  
+  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/metadata.json)  
+  - [RAW](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json)  
 
 - **Security Policy:**  
-  [security.txt (RAW)](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt)  
+  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/security.txt)  
+  - [RAW](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt)  
+
+- **Audit Checklist:**  
+  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md)  
 
 ---
 
@@ -77,3 +84,9 @@ The Founder assumes no liability for losses, misconduct by third parties, or tec
 ## 📬 Kontakt
 
 - 📧 Email: [diemarkdigital@gmail.com](mailto:diemarkdigital@gmail.com)  
+
+---
+
+© 2025 Die Mark Digital – All rights reserved.  
+Powered by Solana • Vault Integrity verified • SPL Token 2020 • MIT License
+

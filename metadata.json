@@ -11,15 +11,17 @@
     "whitepaper": "https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view",
     "app": "https://longosbongos.github.io/Investor_App_DMD/",
     "security": "https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt",
+    "policy": "https://longosbongos.github.io/DMD-Allocatetd/policy",
+    "audit": "https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md",
     "pool": "https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2"
   },
   "attributes": [
     { "trait_type": "Chain", "value": "Solana" },
     { "trait_type": "Program ID", "value": "EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro" },
     { "trait_type": "Mint", "value": "3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5" },
+    { "trait_type": "Vault PDA", "value": "AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF" },
     { "trait_type": "Treasury Wallet", "value": "CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV" },
     { "trait_type": "Founder Wallet", "value": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT" },
-    { "trait_type": "Vault PDA", "value": "AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF" },
     { "trait_type": "Pool Address", "value": "6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2" },
     { "trait_type": "Supply", "value": "150,000,000 DMD" },
     { "trait_type": "Decimals", "value": "9" },

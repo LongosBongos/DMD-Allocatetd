@@ -48,7 +48,7 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
   [metadata.json (RAW)](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json)  
 
 - **Security Policy:**  
-  [security.txt (RAW)]([https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/refs/heads/main/secruity.txt))  
+  [security.txt (RAW)](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt)  
 
 ---
 

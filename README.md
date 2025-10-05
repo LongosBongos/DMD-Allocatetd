@@ -44,7 +44,7 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 
 ## 🌐 Offizielle Links
 
-- 🌍 **Website / App:** [longosbongos.github.io/Investor_App_DMD](https://longosbongos.github.io/Investor_App_DMD/)
+- 🌍 **Website / App:** [https://longosbongos.github.io/Investor_App_DMD/](https://longosbongos.github.io/Investor_App_DMD/)
 - 🧾 **Whitepaper:** [Google Drive](https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view)
 - 📱 **Telegram:** [t.me/diemarkDigitaloffiziell](https://t.me/diemarkDigitaloffiziell)
 - 🐦 **Twitter (X):** [x.com/DieMarkDigital](https://x.com/DieMarkDigital)
@@ -94,3 +94,4 @@ The Founder assumes no liability for losses, misconduct by third parties, or tec
   © 2025 <b>Die Mark Digital</b> – All rights reserved.<br/>
   Powered by Solana • Vault Integrity Verified • SPL Token 2020 • MIT License
 </p>
+

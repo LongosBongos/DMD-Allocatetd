@@ -2,17 +2,27 @@
   <img src="https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png" alt="Die Mark Digital Logo" width="200"/>
 </p>
 
-# 💰 Die Mark Digital (DMD)
+<p align="center">
+  <a href="https://longosbongos.github.io/Investor_App_DMD/">
+    <img src="https://img.shields.io/badge/🚀_Launch_Investor_App-Gold?style=for-the-badge&logo=solana&logoColor=white&color=d4af37" alt="Launch DMD App"/>
+  </a>
+</p>
 
-[![Solana](https://img.shields.io/badge/Blockchain-Solana-14f195?logo=solana&logoColor=white)](https://solana.com)
-[![Token Standard](https://img.shields.io/badge/SPL-Token%202020-yellow)](https://spl.solana.com/token)
-[![Status](https://img.shields.io/badge/Status-Live-brightgreen)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Audit](https://img.shields.io/badge/Audit-Pre_Check_Passed-success)](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md)
-[![Vault](https://img.shields.io/badge/Vault-Verified-blue)](https://longosbongos.github.io/DMD-Allocatetd/policy)
+<h1 align="center">💰 Die Mark Digital (DMD)</h1>
 
-Die **Digitale Deutsche Mark (DMD)** ist ein Community- und Treasury-basiertes Token-Projekt auf der Solana Blockchain.  
-Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury-Mechanik, Founder-Split, Rewards und Penalty-Logik für nachhaltiges Wachstum.  
+<p align="center">
+  <a href="https://solana.com"><img src="https://img.shields.io/badge/Blockchain-Solana-14f195?logo=solana&logoColor=white" /></a>
+  <a href="https://spl.solana.com/token"><img src="https://img.shields.io/badge/SPL-Token%202020-yellow" /></a>
+  <img src="https://img.shields.io/badge/Status-Live-brightgreen" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
+  <a href="https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md"><img src="https://img.shields.io/badge/Audit-Pre_Check_Passed-success" /></a>
+  <a href="https://longosbongos.github.io/DMD-Allocatetd/policy"><img src="https://img.shields.io/badge/Vault-Verified-blue" /></a>
+</p>
+
+---
+
+Die **Digitale Deutsche Mark (DMD)** ist ein Community- und Treasury-basiertes Token-Projekt auf der **Solana Blockchain**.  
+Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury-Mechanik, Founder-Split, Rewards und Penalty-Logik für nachhaltiges Wachstum.
 
 ---
 
@@ -25,7 +35,7 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 | **Vault PDA** | `AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF` |
 | **Treasury Wallet** | `CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV` |
 | **Founder Wallet** | `AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT` |
-| **DEX-Pool** | `6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2` |
+| **DEX Pool** | `6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2` |
 | **Supply** | 150 000 000 DMD |
 | **Decimals** | 9 |
 | **Token Standard** | SPL Token 2020 |
@@ -33,6 +43,7 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 ---
 
 ## 🌐 Offizielle Links
+
 - 🌍 **Website / App:** [longosbongos.github.io/Investor_App_DMD](https://longosbongos.github.io/Investor_App_DMD/)
 - 🧾 **Whitepaper:** [Google Drive](https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view)
 - 📱 **Telegram:** [t.me/diemarkDigitaloffiziell](https://t.me/diemarkDigitaloffiziell)
@@ -44,6 +55,7 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 ---
 
 ## 📄 Metadaten
+
 - **Logo (PNG):** [RAW-Link](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png)  
 - **Token Metadata (JSON):** [RAW-Link](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json)  
 - **Security Policy:** [RAW-Link](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt) · [View on GitHub](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/security.txt)  
@@ -78,7 +90,7 @@ The Founder assumes no liability for losses, misconduct by third parties, or tec
 
 ---
 
-© 2025 Die Mark Digital – All rights reserved.  
-Powered by Solana • Vault Integrity Verified • SPL Token 2020 • MIT License
-
-
+<p align="center">
+  © 2025 <b>Die Mark Digital</b> – All rights reserved.<br/>
+  Powered by Solana • Vault Integrity Verified • SPL Token 2020 • MIT License
+</p>

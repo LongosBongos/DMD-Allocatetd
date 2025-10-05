@@ -15,52 +15,40 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 ---
 
 ## 🔑 Projekt-Infos
-
-- **Program ID:** `EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro`  
-- **Mint:** `3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5`  
-- **Vault PDA:** `AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF`  
-- **Treasury Wallet:** `CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV`  
-- **Founder Wallet:** `AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT`  
-- **DEX-Pool:** `6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2`  
-- **Supply:** 150,000,000 DMD  
-- **Decimals:** 9  
-- **Token Standard:** SPL Token 2020  
+| Feld | Wert |
+|------|------|
+| **Program ID** | `EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro` |
+| **Mint** | `3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5` |
+| **Vault PDA** | `AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF` |
+| **Treasury Wallet** | `CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV` |
+| **Founder Wallet** | `AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT` |
+| **DEX-Pool** | `6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2` |
+| **Supply** | 150 000 000 DMD |
+| **Decimals** | 9 |
+| **Token Standard** | SPL Token 2020 |
 
 ---
 
 ## 🌐 Offizielle Links
-
-- 🌍 **Website / App:** https://longosbongos.github.io/Investor_App_DMD/  
-- 🧾 **Whitepaper:** https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view  
-- 📱 **Telegram:** https://t.me/diemarkDigitaloffiziell  
-- 🐦 **Twitter (X):** https://x.com/DieMarkDigital  
-- 💻 **GitHub (Investor App):** https://github.com/LongosBongos/Investor_App_DMD  
-- 📊 **DexScreener Pool:** https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2  
-- 🛡️ **Policy (Web):** https://longosbongos.github.io/DMD-Allocatetd/policy  
+- **Website / App:** https://longosbongos.github.io/Investor_App_DMD  
+- **Whitepaper:** https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view  
+- **Telegram:** https://t.me/diemarkDigitaloffiziell  
+- **Twitter (X):** https://x.com/DieMarkDigital  
+- **GitHub (Investor App):** https://github.com/LongosBongos/Investor_App_DMD  
+- **DexScreener Pool:** https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2  
+- **Policy (Web):** https://longosbongos.github.io/DMD-Allocatetd/policy  
 
 ---
 
 ## 📄 Metadaten
-
-- **Logo (PNG):**  
-  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png)  
-  - [RAW](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png)  
-
-- **Token Metadata JSON:**  
-  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/metadata.json)  
-  - [RAW](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json)  
-
-- **Security Policy:**  
-  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/security.txt)  
-  - [RAW](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt)  
-
-- **Audit Checklist:**  
-  - [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md)  
+- **Logo (PNG):** https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png  
+- **Token Metadata JSON:** https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json  
+- **Security Policy:** https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt  
+- **Audit Checklist:** https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md  
 
 ---
 
 ## ⚠️ Disclaimer
-
 **Deutsch:**  
 Die Mark Digital (DMD) ist ein Community- und Treasury-basiertes Projekt.  
 Es handelt sich **nicht** um ein gesetzliches Zahlungsmittel, eine Aktie oder ein Wertpapier.  
@@ -82,11 +70,9 @@ The Founder assumes no liability for losses, misconduct by third parties, or tec
 ---
 
 ## 📬 Kontakt
-
-- 📧 Email: [diemarkdigital@gmail.com](mailto:diemarkdigital@gmail.com)  
+📧 Email: [diemarkdigital@gmail.com](mailto:diemarkdigital@gmail.com)  
 
 ---
 
 © 2025 Die Mark Digital – All rights reserved.  
-Powered by Solana • Vault Integrity verified • SPL Token 2020 • MIT License
-
+Powered by Solana • Vault Integrity Verified • SPL Token 2020 • MIT License

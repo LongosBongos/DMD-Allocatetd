@@ -1,33 +1,28 @@
 {
   "name": "Die Mark Digital",
   "symbol": "DMD",
-  "description": "Die Mark Digital (DMD) – Der digitale Taler für die Zukunft. Entwickelt auf Solana, mit Presale, Treasury und Belohnungssystemen für Investoren.",
-  "seller_fee_basis_points": 0,
-  "image": "https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png?raw=true",
-  "external_url": "https://dmd.digital", 
+  "description": "Die digitale Deutsche Mark (DMD) – Treasury-gestützt, fairer Startpreis von 0,01 USD pro DMD. Founder/Treasury-Split mit Rewards- und Penalty-Logik für langfristige Stabilität.",
+  "image": "https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png",
+  "extensions": {
+    "website": "https://longosbongos.github.io/Investor_App_DMD/",
+    "github": "https://github.com/LongosBongos/Investor_App_DMD",
+    "telegram": "https://t.me/diemarkDigitaloffiziell",
+    "twitter": "https://x.com/DieMarkDigital",
+    "whitepaper": "https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view",
+    "app": "https://longosbongos.github.io/Investor_App_DMD/",
+    "security": "https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt",
+    "pool": "https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2"
+  },
   "attributes": [
-    { "trait_type": "Projekt", "value": "Die Mark Digital" },
-    { "trait_type": "Symbol", "value": "DMD" },
+    { "trait_type": "Chain", "value": "Solana" },
+    { "trait_type": "Program ID", "value": "EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro" },
+    { "trait_type": "Mint", "value": "3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5" },
+    { "trait_type": "Treasury Wallet", "value": "CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV" },
+    { "trait_type": "Founder Wallet", "value": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT" },
+    { "trait_type": "Vault PDA", "value": "AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF" },
+    { "trait_type": "Pool Address", "value": "6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2" },
+    { "trait_type": "Supply", "value": "150,000,000 DMD" },
     { "trait_type": "Decimals", "value": "9" },
-    { "trait_type": "Supply", "value": "150,000,000" },
-    { "trait_type": "Netzwerk", "value": "Solana Mainnet" },
-    { "trait_type": "Presale", "value": "5,500,000 DMD" },
-    { "trait_type": "Treasury Split", "value": "40%" },
-    { "trait_type": "Founder Split", "value": "60%" }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://github.com/LongosBongos/DMD-Allocatetd/blob/main/DMD.png?raw=true",
-        "type": "image/png"
-      }
-    ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT",
-        "share": 100
-      }
-    ]
-  }
+    { "trait_type": "Token Standard", "value": "SPL Token 2020" }
+  ]
 }

@@ -3,13 +3,7 @@ Acknowledgments: https://longosbongos.github.io/Investor_App_DMD/security
 Preferred-Languages: en, de
 Canonical: https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt
 Policy: https://longosbongos.github.io/DMD-Allocatetd/policy/
-
-# Projekt-Infos
-Project: Die Mark Digital (DMD)
-Program-ID: EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro
-Mint: 3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5
-Vault-PDA: AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF
-Pool: 6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2
+Expires: 2027-12-31T23:59:59.000Z
 
 # Disclaimer
 Die Mark Digital (DMD) ist ein Community- und Treasury-basiertes Projekt.

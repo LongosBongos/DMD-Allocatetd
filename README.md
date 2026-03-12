@@ -38,7 +38,7 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 | **DEX Pool** | `6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2` |
 | **Supply** | 150 000 000 DMD |
 | **Decimals** | 9 |
-| **Token Standard** | SPL Token 2020 |
+| **Token Standard** | SPL Token |
 
 ---
 

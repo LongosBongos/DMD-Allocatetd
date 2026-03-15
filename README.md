@@ -14,6 +14,7 @@
   <a href="https://solana.com"><img src="https://img.shields.io/badge/Blockchain-Solana-14f195?logo=solana&logoColor=white" /></a>
   <a href="https://spl.solana.com/token"><img src="https://img.shields.io/badge/Token-SPL-yellow" /></a>
   <img src="https://img.shields.io/badge/Status-Live-brightgreen" />
+  <img src="https://img.shields.io/badge/Verified_Build-Confirmed-success" />
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
   <a href="https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md"><img src="https://img.shields.io/badge/Audit-Checklist-success" /></a>
 </p>
@@ -41,6 +42,21 @@ Ziel ist eine strukturierte Infrastruktur mit nachvollziehbarer On-Chain-Archite
 
 ---
 
+## ✅ Verifizierter Build-Status
+
+Das DMD-Programm wurde erfolgreich gegen den öffentlichen Repository-Stand reproduzierbar gebaut und mit dem On-Chain-Programm abgeglichen.
+
+| Feld | Wert |
+|------|------|
+| **Verification Result** | `Program hash matches` |
+| **Verified Repo** | `https://github.com/LongosBongos/DMD-Allocatetd` |
+| **Verified Commit** | `081506bb24406fd633f14d3171d0cce12d1b81e5` |
+| **Program Hash** | `9b14074e64bb55cb93cadbaf297e79b60bbe1430b170801dbe826af00e23558d` |
+| **Verification Upload Tx** | `3n51NRuKyAkiBmHDvzJi1V6w45eXnir5VESeDyzVjvvRHQ9kns7LBkQYPomwssGUfLaiZHqPH4Cwx1Uch1GVGzof` |
+| **Upgrade Authority Removed** | `No` |
+
+---
+
 ## ⚙️ Aktueller On-Chain-Status
 
 | Feld | Status |
@@ -50,6 +66,7 @@ Ziel ist eine strukturierte Infrastruktur mit nachvollziehbarer On-Chain-Archite
 | **Sell Live** | `false` |
 | **IDL** | `public reference available` |
 | **Anchor Source** | `public-safe source published` |
+| **Verified Build** | `confirmed` |
 
 ---
 
@@ -117,5 +134,5 @@ Technical changes, market movements, third-party failures, and on-chain risks ma
 
 <p align="center">
   © 2026 <b>Die Mark Digital (DMD)</b><br/>
-  Built on Solana • Public IDL • Public-safe Anchor Source • MIT License
+  Built on Solana • Public IDL • Public-safe Anchor Source • Verified Build • MIT License
 </p>

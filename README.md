@@ -12,17 +12,16 @@
 
 <p align="center">
   <a href="https://solana.com"><img src="https://img.shields.io/badge/Blockchain-Solana-14f195?logo=solana&logoColor=white" /></a>
-  <a href="https://spl.solana.com/token"><img src="https://img.shields.io/badge/SPL-Token%202020-yellow" /></a>
+  <a href="https://spl.solana.com/token"><img src="https://img.shields.io/badge/Token-SPL-yellow" /></a>
   <img src="https://img.shields.io/badge/Status-Live-brightgreen" />
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
-  <a href="https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md"><img src="https://img.shields.io/badge/Audit-Pre_Check_Passed-success" /></a>
-  <a href="https://longosbongos.github.io/DMD-Allocatetd/policy"><img src="https://img.shields.io/badge/Vault-Verified-blue" /></a>
+  <a href="https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md"><img src="https://img.shields.io/badge/Audit-Checklist-success" /></a>
 </p>
 
 ---
 
-Die **Digitale Deutsche Mark (DMD)** ist ein Community- und Treasury-basiertes Token-Projekt auf der **Solana Blockchain**.  
-Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury-Mechanik, Founder-Split, Rewards und Penalty-Logik für nachhaltiges Wachstum.
+Die **Digitale Deutsche Mark (DMD)** ist ein Solana-basiertes Token-Projekt mit Vault-, Treasury- und Regel-Logik.  
+Ziel ist eine strukturierte Infrastruktur mit nachvollziehbarer On-Chain-Architektur, öffentlicher IDL, klarer Rollen-Trennung und langfristig ausgerichteter Treasury-Mechanik.
 
 ---
 
@@ -33,64 +32,90 @@ Ziel ist ein fairer Startpreis von **0,01 USD pro DMD**, kombiniert mit Treasury
 | **Program ID** | `EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro` |
 | **Mint** | `3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5` |
 | **Vault PDA** | `AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF` |
-| **Treasury Wallet** | `CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV` |
-| **Founder Wallet** | `AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT` |
-| **DEX Pool** | `6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2` |
-| **Supply** | 150 000 000 DMD |
-| **Decimals** | 9 |
-| **Token Standard** | SPL Token |
+| **Treasury Wallet** | `9fAjEDdFjmGwwxh5fyUhDsbyg8RwE7TR12Y25iD4FCoS` |
+| **Protocol Owner** | `GsnjzePaFi2fq4wBYDuRYSfXiMQ1NsFmAYVdhvKUWoXm` |
+| **Admin / Upgrade Authority** | `EGPTLNcdpG4vpfo3thjWJ5FEiPk3n88ppR1dtHTKejbP` |
+| **Supply** | `150,000,000 DMD` |
+| **Decimals** | `9` |
+| **Token Standard** | `SPL Token` |
+
+---
+
+## ⚙️ Aktueller On-Chain-Status
+
+| Feld | Status |
+|------|--------|
+| **Public Sale** | `active` |
+| **Dynamic Pricing** | `false` |
+| **Sell Live** | `false` |
+| **IDL** | `public reference available` |
+| **Anchor Source** | `public-safe source published` |
 
 ---
 
 ## 🌐 Offizielle Links
 
-- 🌍 **Investor App:** [https://longosbongos.github.io/Investor_App_DMD/](https://longosbongos.github.io/Investor_App_DMD/)
-- 🧾 **Whitepaper:** [Google Drive](https://drive.google.com/file/d/1-wT6aRG2XvMPJoQLEmnFLNpjnS9RB5mH/view)
-- 📱 **Telegram:** [t.me/diemarkDigitaloffiziell](https://t.me/diemarkDigitaloffiziell)
-- 🐦 **Twitter (X):** [x.com/DieMarkDigital](https://x.com/DieMarkDigital)
-- 📊 **DexScreener Pool:** [DMD / SOL Pair](https://dexscreener.com/solana/6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2)
-- 🛡️ **Policy (Web):** [longosbongos.github.io/DMD-Allocatetd/policy](https://longosbongos.github.io/DMD-Allocatetd/policy)
-- 💻 **Developer Repository:** [GitHub – Investor App](https://github.com/LongosBongos/Investor_App_DMD)
+- **Investor App:** https://longosbongos.github.io/Investor_App_DMD/
+- **Telegram:** https://t.me/diemarkDigitaloffiziell
+- **X / Twitter:** https://x.com/DieMarkDigital
+- **Policy:** https://longosbongos.github.io/DMD-Allocatetd/policy.html
+- **Security.txt:** https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt
+- **Public Repository:** https://github.com/LongosBongos/DMD-Allocatetd
 
 ---
 
-## 📄 Metadaten
+## 📄 Öffentliche Referenzen
 
-- **Logo (PNG):** [RAW-Link](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/DMD.png)  
-- **Token Metadata (JSON):** [RAW-Link](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/metadata.json)  
-- **Security Policy:** [RAW-Link](https://raw.githubusercontent.com/LongosBongos/DMD-Allocatetd/main/security.txt) · [View on GitHub](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/security.txt)  
-- **Audit Checklist:** [View](https://github.com/LongosBongos/DMD-Allocatetd/blob/main/AUDIT_CHECKLIST.md)
+- **IDL:** `idl/dmd_anchor.json`
+- **Public IDL Copy:** `public/idl/dmd_anchor.json`
+- **Audit Checklist:** `AUDIT_CHECKLIST.md`
+- **Security Policy:** `security.txt`
+- **Token Metadata:** `metadata.json`
+
+---
+
+## 🧩 Öffentliche Source-Struktur
+
+Dieses Repository enthält:
+- die öffentliche DMD-IDL
+- public-safe Anchor-Source zur Verifikation
+- Policy-, Audit- und Security-Referenzen
+- statische Dateien für die öffentliche Projektpräsenz
+
+Dieses Repository enthält **nicht**:
+- Wallet-Dateien
+- `.env`-Dateien
+- lokale Admin-/Deploy-Tools
+- private Treasury-/Authority-Skripte
+- sensible Schlüssel oder Seed-Daten
 
 ---
 
 ## ⚠️ Disclaimer
 
-**Deutsch:**  
-Die Mark Digital (DMD) ist ein Community- und Treasury-basiertes Projekt.  
-Es handelt sich **nicht** um ein gesetzliches Zahlungsmittel, eine Aktie oder ein Wertpapier.  
-Anleger handeln eigenverantwortlich und tragen das volle Risiko.  
-Es bestehen keine Rückzahlungsansprüche gegenüber dem Founder oder der Treasury.  
-Alle Einlagen in SOL oder DMD sind final und können nicht rückerstattet werden.  
-Die Nutzung von DMD erfolgt ausschließlich auf eigenes Risiko.  
-Der Founder übernimmt keinerlei Haftung für Verluste, Fehlverhalten Dritter oder technische Fehler.  
+**Deutsch**  
+Die Mark Digital (DMD) ist ein blockchainbasiertes Projekt mit eigener Treasury- und Regel-Logik.  
+DMD ist **kein gesetzliches Zahlungsmittel**, **keine Aktie** und **kein Wertpapier**.  
+Jede Nutzung erfolgt eigenverantwortlich und auf eigenes Risiko.  
+Es bestehen keine Ansprüche auf Rückzahlung, Erstattung oder garantierte Rendite.  
+Technische Änderungen, Marktbewegungen, Drittfehler und On-Chain-Risiken können jederzeit Einfluss auf Nutzung und Wert haben.
 
-**English:**  
-Die Mark Digital (DMD) is a community- and treasury-based project.  
-It is **not** a legal tender, stock, or security.  
-Investors act on their own responsibility and bear the full risk.  
-There are no repayment claims against the Founder or the Treasury.  
-All deposits in SOL or DMD are final and cannot be refunded.  
-The use of DMD is strictly at your own risk.  
-The Founder assumes no liability for losses, misconduct by third parties, or technical errors.  
+**English**  
+Die Mark Digital (DMD) is a blockchain-based project with treasury and rule-based mechanics.  
+DMD is **not legal tender**, **not a stock**, and **not a security**.  
+Any use is entirely at your own risk.  
+There is no claim for repayment, refund, or guaranteed return.  
+Technical changes, market movements, third-party failures, and on-chain risks may affect usage and value at any time.
 
 ---
 
 ## 📬 Kontakt
-📧 Email: [diemarkdigital@gmail.com](mailto:diemarkdigital@gmail.com)
+
+**Email:** diemarkdigital@gmail.com
 
 ---
 
 <p align="center">
-  © 2025 <b>Die Mark Digital</b> – All rights reserved.<br/>
-  Powered by Solana • Vault Integrity Verified • SPL Token 2020 • MIT License
+  © 2026 <b>Die Mark Digital (DMD)</b><br/>
+  Built on Solana • Public IDL • Public-safe Anchor Source • MIT License
 </p>

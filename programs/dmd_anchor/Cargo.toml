@@ -1,0 +1,21 @@
+[package]
+name    = "dmd_anchor"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib","lib"]
+name = "dmd_anchor"
+
+[features]
+default        = []
+no-entrypoint  = []
+no-idl         = []
+no-log-ix-name = []
+idl-build      = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
+anchor-spl  = "0.31.1"
+solana-security-txt = "1"
+# KEIN separates `solana-program` hier eintragen

@@ -1,0 +1,57 @@
+{
+  "name": "Die Mark Digital",
+  "symbol": "DMD",
+  "description": "Die Mark Digital (DMD) is a Solana-based digital asset ecosystem built around transparent infrastructure, a verified Anchor program and a dedicated Investor App.",
+  "seller_fee_basis_points": 0,
+  "image": "https://longosbongos.github.io/DMD-Allocatetd/DMD.png",
+  "external_url": "https://longosbongos.github.io/Investor_App_DMD/",
+  "attributes": [
+    {
+      "trait_type": "Project",
+      "value": "Die Mark Digital"
+    },
+    {
+      "trait_type": "Symbol",
+      "value": "DMD"
+    },
+    {
+      "trait_type": "Network",
+      "value": "Solana Mainnet"
+    },
+    {
+      "trait_type": "Token Standard",
+      "value": "SPL Token"
+    },
+    {
+      "trait_type": "Program Status",
+      "value": "Verified"
+    },
+    {
+      "trait_type": "Mint Authority",
+      "value": "None"
+    },
+    {
+      "trait_type": "Freeze Authority",
+      "value": "None"
+    },
+    {
+      "trait_type": "Primary Interface",
+      "value": "Investor App"
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "https://longosbongos.github.io/DMD-Allocatetd/DMD.png",
+        "type": "image/png"
+      }
+    ]
+  },
+  "extensions": {
+    "website": "https://longosbongos.github.io/Investor_App_DMD/",
+    "github": "https://github.com/LongosBongos/DMD-Allocatetd",
+    "policy": "https://longosbongos.github.io/DMD-Allocatetd/policy.html",
+    "security": "https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt"
+  }
+}

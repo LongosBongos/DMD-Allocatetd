@@ -44,16 +44,25 @@ Ziel ist eine strukturierte Infrastruktur mit nachvollziehbarer On-Chain-Archite
 
 ## ✅ Verifizierter Build-Status
 
-Das DMD-Programm wurde erfolgreich gegen den öffentlichen Repository-Stand reproduzierbar gebaut und mit dem On-Chain-Programm abgeglichen.
+Das DMD-Programm wurde erfolgreich gegen den öffentlichen Repository-Stand reproduzierbar gebaut, mit dem On-Chain-Programm abgeglichen und anschließend als Verifikationsnachweis auf Solana hochgeladen.
 
 | Feld | Wert |
 |------|------|
 | **Verification Result** | `Program hash matches` |
 | **Verified Repo** | `https://github.com/LongosBongos/DMD-Allocatetd` |
-| **Verified Commit** | `081506bb24406fd633f14d3171d0cce12d1b81e5` |
-| **Program Hash** | `9b14074e64bb55cb93cadbaf297e79b60bbe1430b170801dbe826af00e23558d` |
-| **Verification Upload Tx** | `3n51NRuKyAkiBmHDvzJi1V6w45eXnir5VESeDyzVjvvRHQ9kns7LBkQYPomwssGUfLaiZHqPH4Cwx1Uch1GVGzof` |
+| **Verified Commit** | `515dfea53f38562fada57a2c75fbedfc531c0811` |
+| **Program Hash** | `30068ed51330a15c696b92a5ad08b9f655646b98d46687d75e40e5a98277a2a6` |
+| **Verification Upload Tx** | `2C6fsEGFfKeG986k57MnjpyFDGKvNXBbtAvcU1NuoU1hk47iS8G7dN8Cpw3a6nPfejWAPpz1zZmc2wEpPQycw32b` |
 | **Upgrade Authority Removed** | `No` |
+
+### 🔍 Reproducible Verification
+
+This program was verified using the official Solana reproducible build process.
+
+- Build environment: Solana v2.3.0
+- Docker build used for deterministic compilation
+- Binary hash matches exactly with the on-chain program
+- Verification data was uploaded on-chain after hash confirmation
 
 ---
 
@@ -83,8 +92,7 @@ Das DMD-Programm wurde erfolgreich gegen den öffentlichen Repository-Stand repr
 
 ## 📄 Öffentliche Referenzen
 
-- **IDL:** `idl/dmd_anchor.json`
-- **Public IDL Copy:** `public/idl/dmd_anchor.json`
+- **IDL:** `target/idl/dmd_anchor.json`
 - **Audit Checklist:** `AUDIT_CHECKLIST.md`
 - **Security Policy:** `security.txt`
 - **Token Metadata:** `metadata.json`

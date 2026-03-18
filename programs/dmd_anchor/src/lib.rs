@@ -40,6 +40,9 @@ const VAULT_MEDIUM_DMD_MIN: u64 = 1_000_000;
 const PRICE_MEDIUM_SURCHARGE_BPS: u64 = 500;
 const PRICE_STRONG_SURCHARGE_BPS: u64 = 1000;
 const SELL_PROTOCOL_OWNER_SHARE_BPS: u64 = 6500;
+const SELL_WINDOW_SECONDS: i64 = 60 * 60 * 24 * 30;
+const FREE_SELLS_PER_WINDOW: u8 = 2;
+const MAX_EXTRA_SELL_APPROVALS: u8 = 12;
 
 declare_id!("EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro");
 
@@ -261,6 +264,81 @@ fn split_sell_penalty(penalty_lamports: u64) -> Result<(u64, u64)> {
     Ok((protocol_owner_share, treasury_retained))
 }
 
+fn enforce_sell_window_and_consume_approval(
+    buyer_state_ext_v2: &mut Account<BuyerStateExtV2>,
+    now: i64,
+) -> Result<()> {
+    if buyer_state_ext_v2.sell_window_start == 0 {
+        buyer_state_ext_v2.sell_window_start = now;
+        buyer_state_ext_v2.sell_count_window = 0;
+    }
+
+    let elapsed = now
+        .checked_sub(buyer_state_ext_v2.sell_window_start)
+        .ok_or(CustomError::MathOverflow)?;
+
+    if elapsed >= SELL_WINDOW_SECONDS {
+        buyer_state_ext_v2.sell_window_start = now;
+        buyer_state_ext_v2.sell_count_window = 0;
+    }
+
+    if buyer_state_ext_v2.sell_count_window < FREE_SELLS_PER_WINDOW {
+        buyer_state_ext_v2.sell_count_window = buyer_state_ext_v2
+            .sell_count_window
+            .checked_add(1)
+            .ok_or(CustomError::MathOverflow)?;
+        return Ok(());
+    }
+
+    require!(
+        buyer_state_ext_v2.extra_sell_approvals > 0,
+        CustomError::ExtraSellApprovalRequired
+    );
+
+    buyer_state_ext_v2.extra_sell_approvals = buyer_state_ext_v2
+        .extra_sell_approvals
+        .checked_sub(1)
+        .ok_or(CustomError::MathOverflow)?;
+
+    Ok(())
+}
+
+fn enforce_buy_limit_and_maybe_arm_cooldown(
+    buyer_state: &mut Account<BuyerState>,
+    buyer_state_ext_v2: &mut Account<BuyerStateExtV2>,
+    now: i64,
+) -> Result<()> {
+    require!(
+        now >= buyer_state_ext_v2.buy_cooldown_until,
+        CustomError::BuyCooldownActive
+    );
+
+    let now_day = now / 86_400;
+    let last_day = buyer_state.last_buy_day / 86_400;
+
+    if buyer_state.last_buy_day == 0 || now_day != last_day {
+        buyer_state.buy_count_today = 0;
+    }
+
+    require!(
+        buyer_state.buy_count_today < BUY_DAILY_LIMIT,
+        CustomError::BuyDailyLimitExceeded
+    );
+
+    buyer_state.buy_count_today = buyer_state
+        .buy_count_today
+        .checked_add(1)
+        .ok_or(CustomError::MathOverflow)?;
+
+    if buyer_state.buy_count_today == BUY_DAILY_LIMIT {
+        buyer_state_ext_v2.buy_cooldown_until = now
+            .checked_add(BUY_COOLDOWN_SECONDS)
+            .ok_or(CustomError::MathOverflow)?;
+    }
+
+    Ok(())
+}
+
 #[program]
 pub mod dmd_anchor {
     use super::*;
@@ -368,25 +446,11 @@ pub mod dmd_anchor {
             require!(buyer_state.whitelisted, CustomError::NotWhitelisted);
         }
 
-        require!(
-            clock.unix_timestamp >= buyer_state_ext_v2.buy_cooldown_until,
-            CustomError::BuyCooldownActive
-        );
-
-        let now_day = clock.unix_timestamp / 86_400;
-        let last_day = buyer_state.last_buy_day / 86_400;
-        if now_day != last_day {
-            buyer_state.buy_count_today = 0;
-        }
-        buyer_state.buy_count_today = buyer_state.buy_count_today.saturating_add(1);
-
-        if buyer_state.buy_count_today > BUY_DAILY_LIMIT {
-            buyer_state_ext_v2.buy_cooldown_until = clock
-                .unix_timestamp
-                .checked_add(BUY_COOLDOWN_SECONDS)
-                .ok_or(CustomError::MathOverflow)?;
-            return err!(CustomError::BuyDailyLimitExceeded);
-        }
+        enforce_buy_limit_and_maybe_arm_cooldown(
+            buyer_state,
+            buyer_state_ext_v2,
+            clock.unix_timestamp,
+        )?;
 
         let frequency_fee_bps: u64 = match buyer_state.buy_count_today {
             0..=4 => 0,
@@ -500,9 +564,14 @@ pub mod dmd_anchor {
 
     pub fn set_manual_price(ctx: Context<SetManualPrice>, lamports_per_10k: u64) -> Result<()> {
         let vault = &mut ctx.accounts.vault;
+        let vault_config_v2 = &mut ctx.accounts.vault_config_v2;
+
         require_keys_eq!(vault.owner, ctx.accounts.protocol_owner.key(), CustomError::Unauthorized);
         require!(lamports_per_10k > 0, CustomError::InvalidPrice);
+
         vault.initial_price_sol = lamports_per_10k;
+        vault_config_v2.manual_price_lamports_per_10k = lamports_per_10k;
+
         Ok(())
     }
 
@@ -567,14 +636,40 @@ pub mod dmd_anchor {
         ctx: Context<InitializeBuyerStateExtV2>,
     ) -> Result<()> {
         let ext = &mut ctx.accounts.buyer_state_ext_v2;
-        if ext.buy_cooldown_until == 0
-            && ext.sell_window_start == 0
-            && ext.sell_count_window == 0
-            && ext.extra_sell_approvals == 0
-            && !ext.first_claim_done
-        {
+        let now = Clock::get()?.unix_timestamp;
+
+        if ext.sell_window_start == 0 {
+            ext.sell_window_start = now;
+        }
+
+        Ok(())
+    }
+
+    pub fn grant_extra_sell_approvals(
+        ctx: Context<GrantExtraSellApprovals>,
+        approvals: u8,
+    ) -> Result<()> {
+        require!(approvals > 0, CustomError::InvalidApprovalAmount);
+
+        let vault = &ctx.accounts.vault;
+        require_keys_eq!(vault.owner, ctx.accounts.protocol_owner.key(), CustomError::Unauthorized);
+
+        let ext = &mut ctx.accounts.buyer_state_ext_v2;
+
+        ext.extra_sell_approvals = ext
+            .extra_sell_approvals
+            .checked_add(approvals)
+            .ok_or(CustomError::MathOverflow)?;
+
+        require!(
+            ext.extra_sell_approvals <= MAX_EXTRA_SELL_APPROVALS,
+            CustomError::ApprovalLimitExceeded
+        );
+
+        if ext.sell_window_start == 0 {
             ext.sell_window_start = Clock::get()?.unix_timestamp;
         }
+
         Ok(())
     }
 
@@ -672,11 +767,15 @@ pub mod dmd_anchor {
         require!(amount_tokens > 0, CustomError::SellAmountTooSmall);
 
         let buyer_state = &mut ctx.accounts.buyer_state;
+        let buyer_state_ext_v2 = &mut ctx.accounts.buyer_state_ext_v2;
+
         require!(buyer_state.whitelisted, CustomError::NotWhitelisted);
         require!(
             buyer_state.total_dmd >= amount_tokens,
             CustomError::InsufficientBuyerDmdBalance
         );
+
+        enforce_sell_window_and_consume_approval(buyer_state_ext_v2, clock.unix_timestamp)?;
 
         let amount_units = whole_tokens_to_units(amount_tokens, vault.mint_decimals)?;
         require!(
@@ -764,6 +863,7 @@ pub mod dmd_anchor {
     ) -> Result<()> {
         let clock = Clock::get()?;
         let buyer_state = &mut ctx.accounts.buyer_state;
+        let buyer_state_ext_v2 = &mut ctx.accounts.buyer_state_ext_v2;
         let vault = &mut ctx.accounts.vault;
 
         autowl_if_needed(buyer_state, ctx.accounts.user.lamports());
@@ -782,6 +882,12 @@ pub mod dmd_anchor {
             amount_in_lamports >= MIN_CONTRIB_LAMPORTS && amount_in_lamports <= MAX_CONTRIB_LAMPORTS,
             CustomError::ContributionOutOfRange
         );
+
+        enforce_buy_limit_and_maybe_arm_cooldown(
+            buyer_state,
+            buyer_state_ext_v2,
+            clock.unix_timestamp,
+        )?;
 
         let effective_price = effective_price_lamports_per_10k(
             vault,
@@ -859,7 +965,6 @@ pub mod dmd_anchor {
             .ok_or(CustomError::MathOverflow)?;
         buyer_state.holding_since = clock.unix_timestamp;
         buyer_state.last_buy_day = clock.unix_timestamp;
-        buyer_state.buy_count_today = buyer_state.buy_count_today.saturating_add(1);
 
         Ok(())
     }
@@ -883,11 +988,15 @@ pub mod dmd_anchor {
         require!(amount_in_dmd > 0, CustomError::SellAmountTooSmall);
 
         let buyer_state = &mut ctx.accounts.buyer_state;
+        let buyer_state_ext_v2 = &mut ctx.accounts.buyer_state_ext_v2;
+
         require!(buyer_state.whitelisted, CustomError::NotWhitelisted);
         require!(
             buyer_state.total_dmd >= amount_in_dmd,
             CustomError::InsufficientBuyerDmdBalance
         );
+
+        enforce_sell_window_and_consume_approval(buyer_state_ext_v2, clock.unix_timestamp)?;
 
         let amount_units = whole_tokens_to_units(amount_in_dmd, vault.mint_decimals)?;
         require!(
@@ -1142,6 +1251,14 @@ pub struct TransferVaultOwner<'info> {
 pub struct SetManualPrice<'info> {
     #[account(mut, seeds = [b"vault"], bump)]
     pub vault: Account<'info, Vault>,
+
+    #[account(
+        mut,
+        seeds = [b"vault-config-v2", vault.key().as_ref()],
+        bump
+    )]
+    pub vault_config_v2: Account<'info, VaultConfigV2>,
+
     pub protocol_owner: Signer<'info>,
 }
 
@@ -1203,6 +1320,29 @@ pub struct InitializeBuyerStateExtV2<'info> {
     #[account(mut)]
     pub buyer: Signer<'info>,
     pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct GrantExtraSellApprovals<'info> {
+    #[account(seeds = [b"vault"], bump)]
+    pub vault: Account<'info, Vault>,
+
+    pub buyer: SystemAccount<'info>,
+
+    #[account(
+        seeds = [b"buyer", vault.key().as_ref(), buyer.key().as_ref()],
+        bump
+    )]
+    pub buyer_state: Account<'info, BuyerState>,
+
+    #[account(
+        mut,
+        seeds = [b"buyer-ext-v2", vault.key().as_ref(), buyer.key().as_ref()],
+        bump
+    )]
+    pub buyer_state_ext_v2: Account<'info, BuyerStateExtV2>,
+
+    pub protocol_owner: Signer<'info>,
 }
 
 #[derive(Accounts)]
@@ -1271,6 +1411,13 @@ pub struct SellDmdV2<'info> {
 
     #[account(
         mut,
+        seeds = [b"buyer-ext-v2", vault.key().as_ref(), buyer.key().as_ref()],
+        bump
+    )]
+    pub buyer_state_ext_v2: Account<'info, BuyerStateExtV2>,
+
+    #[account(
+        mut,
         constraint = vault_token_account.mint == vault.mint,
         constraint = vault_token_account.owner == vault.key()
     )]
@@ -1313,6 +1460,15 @@ pub struct SwapBuyV1<'info> {
         space = 8 + BuyerState::SIZE
     )]
     pub buyer_state: Account<'info, BuyerState>,
+
+    #[account(
+        init_if_needed,
+        payer = user,
+        seeds = [b"buyer-ext-v2", vault.key().as_ref(), user.key().as_ref()],
+        bump,
+        space = 8 + BuyerStateExtV2::SIZE
+    )]
+    pub buyer_state_ext_v2: Account<'info, BuyerStateExtV2>,
 
     #[account(
         mut,
@@ -1358,6 +1514,13 @@ pub struct SwapSellV1<'info> {
         bump
     )]
     pub buyer_state: Account<'info, BuyerState>,
+
+    #[account(
+        mut,
+        seeds = [b"buyer-ext-v2", vault.key().as_ref(), user.key().as_ref()],
+        bump
+    )]
+    pub buyer_state_ext_v2: Account<'info, BuyerStateExtV2>,
 
     #[account(
         mut,
@@ -1465,7 +1628,7 @@ pub enum CustomError {
     InvalidOwner,
     #[msg("Buy-Cooldown ist aktiv.")]
     BuyCooldownActive,
-    #[msg("Tageslimit für Buys überschritten. 2-Tage-Cooldown aktiviert.")]
+    #[msg("Tageslimit für Buys überschritten.")]
     BuyDailyLimitExceeded,
     #[msg("Sell ist bis zum finalen Upgrade deaktiviert.")]
     SellTemporarilyDisabled,
@@ -1483,4 +1646,10 @@ pub enum CustomError {
     SellAmountTooSmall,
     #[msg("Min-Out / Slippage-Bedingung nicht erfüllt.")]
     SlippageExceeded,
+    #[msg("Zusätzliche Sell-Freigabe erforderlich.")]
+    ExtraSellApprovalRequired,
+    #[msg("Ungültige Freigabemenge.")]
+    InvalidApprovalAmount,
+    #[msg("Zu viele zusätzliche Sell-Freigaben.")]
+    ApprovalLimitExceeded,
 }

@@ -71,7 +71,7 @@ This program was verified using the official Solana reproducible build process.
 | Feld | Status |
 |------|--------|
 | **Public Sale** | `active` |
-| **Dynamic Pricing** | `false` |
+| **Dynamic Pricing** | `true` |
 | **Sell Live** | `false` |
 | **IDL** | `public reference available` |
 | **Anchor Source** | `public-safe source published` |
@@ -95,7 +95,7 @@ This program was verified using the official Solana reproducible build process.
 - **IDL:** `target/idl/dmd_anchor.json`
 - **Audit Checklist:** `AUDIT_CHECKLIST.md`
 - **Security Policy:** `security.txt`
-- **Token Metadata:** `metadata.json`
+- **Token Metadata:** `metadata.dmd2.json`
 
 ---
 

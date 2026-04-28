@@ -22,8 +22,8 @@
 
 | Test | Beschreibung | Ergebnis |
 |------|---------------|-----------|
-| Founder-Signaturen | Alle Founder-Operations (`initialize`, `set_manual_price`, `toggle_public_sale`, `whitelist_add`) verlangen Signer-Prüfung auf Founder Wallet `AqPFb5LWQuzKiyoKTX9XgUwsYWoFvpeE8E8uzQvnDTzT`. | ✅ Passed |
-| Treasury Authority | Treasury (`CEUmazdgtbUCcQyLq6NCm4BuQbvCsYFzKsS5wdRvZehV`) wird nur bei `sell_dmd_v2` oder `swap_exact_dmd_for_sol` als Signer verwendet. | ✅ Passed |
+| Founder-Signaturen | Alle Founder-Operations (`initialize`, `set_manual_price`, `toggle_public_sale`, `whitelist_add`) verlangen Signer-Prüfung auf Founder Wallet `GsnjzePaFi2fq4wBYDuRYSfXiMQ1NsFmAYVdhvKUWoXm`. | ✅ Passed |
+| Treasury Authority | Treasury (`9fAjEDdFjmGwwxh5fyUhDsbyg8RwE7TR12Y25iD4FCoS`) wird nur bei `sell_dmd_v2` oder `swap_exact_dmd_for_sol` als Signer verwendet. | ✅ Passed |
 | Buyer Auth | Käufertransaktionen (`buy_dmd`, `claim_reward`, `sell_dmd_v2`, `swap_exact_sol_for_dmd`) prüfen immer auf `buyer.is_signer`. | ✅ Passed |
 | PDA-Ownership | Vault- und BuyerState-PDAs validieren Seeds (`vault`, `buyer`) gegen Program ID. | ✅ Passed |
 

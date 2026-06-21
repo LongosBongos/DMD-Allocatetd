@@ -1,56 +1,383 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Die Mark Digital (DMD) – Verified Public Reference</title>
-  <meta name="description" content="Verified public reference for Die Mark Digital (DMD) on Solana." />
+  <meta
+    name="description"
+    content="Verified public reference for Die Mark Digital (DMD) on Solana. Public proof layer, investor access, allocation references and project documentation."
+  />
+
   <style>
     :root {
-      --bg: #0b0f14;
-      --panel: #11161d;
-      --panel2: #161c24;
-      --text: #e6edf3;
-      --muted: #aab2bd;
+      --bg: #06080c;
+      --bg2: #0a0e14;
+      --panel: rgba(13, 18, 25, 0.88);
+      --panel2: rgba(18, 24, 33, 0.92);
+      --card: rgba(255, 255, 255, 0.035);
+      --card2: rgba(212, 175, 55, 0.055);
+      --text: #edf2f7;
+      --muted: #aeb7c4;
+      --soft: #78828f;
       --gold: #d4af37;
-      --border: rgba(255,255,255,0.08);
+      --gold2: #f1cc5b;
+      --gold3: #8c6f1f;
+      --border: rgba(255, 255, 255, 0.09);
+      --gold-border: rgba(212, 175, 55, 0.28);
       --link: #7cc4ff;
+      --success: #74e0a4;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.46);
+      --radius-lg: 30px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: var(--bg);
       color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(212, 175, 55, 0.16), transparent 32%),
+        radial-gradient(circle at 85% 12%, rgba(241, 204, 91, 0.09), transparent 30%),
+        radial-gradient(circle at 45% 92%, rgba(212, 175, 55, 0.07), transparent 34%),
+        linear-gradient(180deg, #030407 0%, var(--bg) 45%, #05070a 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 80%);
+      opacity: 0.32;
+    }
+
+    a {
+      color: inherit;
     }
 
     .wrap {
-      max-width: 900px;
+      width: min(1160px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 20px 64px;
+      padding: 34px 0 70px;
     }
 
-    .panel {
-      background: linear-gradient(180deg, var(--panel), var(--panel2));
+    .shell {
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012)),
+        linear-gradient(140deg, var(--panel), var(--panel2));
+      box-shadow: var(--shadow);
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(241, 204, 91, 0.18), transparent 38%),
+        linear-gradient(120deg, transparent, rgba(212,175,55,0.12), transparent);
+      opacity: 0.8;
+    }
+
+    .shell::after {
+      content: "";
+      position: absolute;
+      right: -140px;
+      top: -160px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.12);
+      box-shadow:
+        0 0 0 34px rgba(212,175,55,0.025),
+        0 0 0 72px rgba(212,175,55,0.015);
+      pointer-events: none;
+    }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+      padding: 26px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold2);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--gold2);
+      box-shadow: 0 0 18px rgba(241,204,91,0.8);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 9px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.18s ease;
+    }
+
+    .nav a:hover {
+      color: var(--gold2);
+      border-color: var(--gold-border);
+      background: rgba(212,175,55,0.055);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+      padding: 18px 8px 18px;
+    }
+
+    .eyebrow {
+      color: var(--gold2);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 16px;
     }
 
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 4vw, 42px);
+      margin: 0;
       color: var(--gold);
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
     }
 
-    h2 {
-      margin-top: 32px;
-      margin-bottom: 10px;
+    .subtitle {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: #c9d4e2;
+      font-size: clamp(17px, 2vw, 22px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 0;
+    }
+
+    .badge {
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--gold2);
+      background: rgba(212,175,55,0.07);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      border: 1px solid rgba(212,175,55,0.4);
+      transition: 0.18s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      color: #111;
+      box-shadow: 0 10px 24px rgba(212,175,55,0.18);
+    }
+
+    .btn.secondary {
+      color: var(--gold2);
+      background: rgba(212,175,55,0.055);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+    }
+
+    .proof-card {
+      border: 1px solid var(--gold-border);
+      border-radius: 26px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(241,204,91,0.13), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .proof-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .proof-title strong {
+      display: block;
+      color: var(--gold2);
       font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .proof-title span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .seal {
+      width: 78px;
+      height: 78px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #111;
+      font-weight: 1000;
+      font-size: 22px;
+      background:
+        radial-gradient(circle at 30% 25%, #fff1a5, transparent 28%),
+        linear-gradient(145deg, var(--gold2), var(--gold3));
+      box-shadow:
+        0 0 0 8px rgba(212,175,55,0.08),
+        0 18px 38px rgba(0,0,0,0.35);
+    }
+
+    .proof-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .proof-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 13px 14px;
+      background: rgba(0,0,0,0.16);
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #09110c;
+      background: var(--success);
+      font-weight: 1000;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .proof-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .section {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+    }
+
+    .wide { grid-column: span 12; }
+    .half { grid-column: span 6; }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: clamp(26px, 3.2vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 0 0 7px;
+      color: var(--gold2);
+      font-size: 17px;
     }
 
     p {
@@ -61,125 +388,530 @@
       color: var(--muted);
     }
 
+    .highlight {
+      color: var(--gold2);
+      font-weight: 900;
+    }
+
+    .principles,
+    .actions,
     .links {
       display: grid;
-      gap: 12px;
-      margin-top: 22px;
+      gap: 14px;
+      margin-top: 18px;
     }
 
-    .linkcard {
-      display: block;
-      text-decoration: none;
-      color: var(--text);
+    .principles {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .actions,
+    .links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card,
+    .linkcard,
+    .meta div {
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-      background: rgba(255,255,255,0.02);
-      transition: 0.18s ease;
+      border-radius: 18px;
+      background: var(--card);
+      padding: 17px;
     }
 
-    .linkcard:hover {
-      border-color: rgba(255,255,255,0.18);
-      transform: translateY(-1px);
-    }
-
+    .card strong,
     .linkcard strong {
       display: block;
-      margin-bottom: 4px;
+      color: var(--gold2);
+      margin-bottom: 6px;
     }
 
+    .card span,
     .linkcard span {
       color: var(--muted);
       font-size: 14px;
     }
 
-    .meta {
-      margin-top: 26px;
+    .linkcard {
+      display: block;
+      text-decoration: none;
+      transition: 0.18s ease;
+    }
+
+    .linkcard:hover {
+      border-color: rgba(212,175,55,0.48);
+      background: rgba(212,175,55,0.055);
+      transform: translateY(-2px);
+    }
+
+    .flow {
       display: grid;
-      gap: 10px;
-      font-size: 15px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .meta div {
-      padding: 10px 12px;
+    .step {
+      position: relative;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.015);
-      word-break: break-word;
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(0,0,0,0.15);
+      min-height: 146px;
     }
 
-    a.inline {
-      color: var(--link);
+    .step-number {
+      color: var(--gold2);
+      font-weight: 1000;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    footer {
-      margin-top: 26px;
+    .step strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .step span {
       color: var(--muted);
       font-size: 14px;
     }
 
+    .meta {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 15px;
+    }
+
+    .meta div {
+      word-break: break-word;
+    }
+
     code {
+      color: #f5d879;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 0.95em;
     }
+
+    a.inline {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a.inline:hover {
+      text-decoration: underline;
+    }
+
+    .notice {
+      border-color: rgba(255,204,102,0.22);
+      background: rgba(255,204,102,0.045);
+    }
+
+    .notice p {
+      color: var(--muted);
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      padding: 28px 0 6px;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-card {
+        margin-top: 10px;
+      }
+
+      .principles,
+      .actions,
+      .links,
+      .flow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .half {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 22px, 1160px);
+        padding-top: 16px;
+      }
+
+      .inner {
+        padding: 18px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 24px;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 6px 0 10px;
+      }
+
+      .eyebrow {
+        letter-spacing: 0.13em;
+        font-size: 11px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .principles,
+      .actions,
+      .links,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-title {
+        flex-direction: column-reverse;
+      }
+
+      .seal {
+        width: 68px;
+        height: 68px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main class="wrap">
-    <section class="panel">
-      <h1>Die Mark Digital (DMD)</h1>
-      <p class="muted"><strong>Verified Public Reference</strong></p>
+    <section class="shell">
+      <div class="inner">
+        <header class="topbar">
+          <div class="brand-mini">
+            <span class="brand-dot"></span>
+            DMD Public Reference
+          </div>
 
-      <p>
-        This page provides the public reference layer for <strong>Die Mark Digital (DMD)</strong> on Solana.
-        It complements the live Investor App and the public verified repository.
-      </p>
+          <nav class="nav" aria-label="Primary navigation">
+            <a href="#why">Why DMD</a>
+            <a href="#principles">Principles</a>
+            <a href="#verify">Verification</a>
+            <a href="#references">References</a>
+          </nav>
+        </header>
 
-      <p>
-        The authoritative basis for system behavior remains the <strong>on-chain program</strong>.
-        This page serves as a structured public entry point to the official DMD references.
-      </p>
+        <section class="hero">
+          <div>
+            <div class="eyebrow">Transparent • Secure • Verifiable • Community Driven</div>
 
-      <div class="links">
-        <a class="linkcard" href="https://longosbongos.github.io/Investor_App_DMD/">
-          <strong>Investor App</strong>
-          <span>Public DApp interface for DMD users and investors</span>
-        </a>
+            <h1>Die Mark Digital<br>(DMD)</h1>
 
-        <a class="linkcard" href="https://github.com/LongosBongos/DMD-Allocatetd">
-          <strong>Verified Repository</strong>
-          <span>Public source of truth for verification, references, IDL, and documentation</span>
-        </a>
+            <p class="subtitle">
+              A Solana-based digital value product built around public verification,
+              treasury visibility and long-term infrastructure instead of empty hype.
+            </p>
 
-        <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/policy.html">
-          <strong>Policy</strong>
-          <span>Disclaimer, project policy, and public information</span>
-        </a>
+            <div class="badge-row">
+              <span class="badge">Solana</span>
+              <span class="badge">Verified References</span>
+              <span class="badge">Investor App</span>
+              <span class="badge">Treasury & Vault</span>
+              <span class="badge">Public Documentation</span>
+            </div>
 
-        <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt">
-          <strong>Security.txt</strong>
-          <span>Public security contact and reference file</span>
-        </a>
+            <div class="cta">
+              <a class="btn primary" href="https://longosbongos.github.io/Investor_App_DMD/">
+                Open Investor App
+              </a>
+
+              <a class="btn secondary" href="https://github.com/LongosBongos/DMD-Allocatetd">
+                View Verified Repository
+              </a>
+            </div>
+          </div>
+
+          <aside class="proof-card" aria-label="DMD verification stack">
+            <div class="proof-title">
+              <div>
+                <strong>Verification before trust.</strong>
+                <span>Public references, visible structure and on-chain authority.</span>
+              </div>
+
+              <div class="seal">DMD</div>
+            </div>
+
+            <div class="proof-list">
+              <div class="proof-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>On-chain program</strong>
+                  <span>The Solana program remains the authoritative basis.</span>
+                </div>
+              </div>
+
+              <div class="proof-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>Verified repository</strong>
+                  <span>Public references, IDL, policy and documentation.</span>
+                </div>
+              </div>
+
+              <div class="proof-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>Investor App</strong>
+                  <span>Public access layer for users and investors.</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <div class="grid">
+          <section class="section wide" id="why">
+            <h2>Why DMD Exists</h2>
+
+            <p>
+              <strong>Die Mark Digital (DMD)</strong> was created from a simple belief:
+              <span class="highlight">trust should be earned through transparency</span>,
+              not requested through marketing.
+            </p>
+
+            <p>
+              Many digital assets rely on short-term attention, speculation and constant hype.
+              DMD was designed to follow a different path — one based on public references,
+              verifiable infrastructure, treasury awareness and long-term responsibility.
+            </p>
+
+            <p>
+              DMD is not intended to be just another token. It is designed as a
+              <strong>digital value product</strong> that allows users, investors and observers
+              to independently review public information and follow the project through
+              documentation, repositories and on-chain references.
+            </p>
+
+            <p>
+              The idea behind DMD is simple: build a transparent digital asset ecosystem where
+              openness, accountability and verifiable information matter more than promises.
+            </p>
+          </section>
+
+          <section class="section wide" id="principles">
+            <h2>DMD Principles</h2>
+
+            <div class="principles">
+              <div class="card">
+                <strong>Transparency First</strong>
+                <span>Public references, open documentation and visible project information.</span>
+              </div>
+
+              <div class="card">
+                <strong>On-Chain Truth</strong>
+                <span>The Solana program remains the authoritative basis for system behavior.</span>
+              </div>
+
+              <div class="card">
+                <strong>Verification Before Trust</strong>
+                <span>Users should be able to review references instead of relying on founder claims.</span>
+              </div>
+
+              <div class="card">
+                <strong>Long-Term Thinking</strong>
+                <span>DMD is built around sustainable development, not short-term attention.</span>
+              </div>
+
+              <div class="card">
+                <strong>Treasury Awareness</strong>
+                <span>Treasury, vault and allocation references are part of the public structure.</span>
+              </div>
+
+              <div class="card">
+                <strong>Community Driven</strong>
+                <span>DMD grows through users, supporters and transparent communication.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section wide">
+            <h2>What Users Can Do</h2>
+
+            <div class="actions">
+              <div class="card">
+                <strong>Connect Wallet</strong>
+                <span>Access the Investor App through a compatible Solana wallet.</span>
+              </div>
+
+              <div class="card">
+                <strong>Self-Whitelist</strong>
+                <span>Eligible users can unlock DMD access directly through the app.</span>
+              </div>
+
+              <div class="card">
+                <strong>Buy, Sell & Claim</strong>
+                <span>Use the available app functions according to the active system state.</span>
+              </div>
+
+              <div class="card">
+                <strong>Verify References</strong>
+                <span>Review public project references, repository data and on-chain information.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section half" id="verify">
+            <h2>Verified Public Reference</h2>
+
+            <p>
+              This page provides the public reference layer for <strong>Die Mark Digital (DMD)</strong>
+              on Solana. It complements the live Investor App and the public verified repository.
+            </p>
+
+            <p>
+              The authoritative basis for system behavior remains the <strong>on-chain program</strong>.
+              This page serves as a structured public entry point to the official DMD references.
+            </p>
+          </section>
+
+          <section class="section half">
+            <h2>How to Read This Page</h2>
+
+            <p>
+              This page is not the proof itself. It is a public access layer that points to the
+              relevant DMD references.
+            </p>
+
+            <p>
+              The chain remains the source of truth. The repository provides verification.
+              The Investor App provides user access.
+            </p>
+          </section>
+
+          <section class="section wide">
+            <h2>Verification Flow</h2>
+
+            <div class="flow">
+              <div class="step">
+                <div class="step-number">Step 01</div>
+                <strong>On-chain program</strong>
+                <span>System behavior is anchored on Solana.</span>
+              </div>
+
+              <div class="step">
+                <div class="step-number">Step 02</div>
+                <strong>Verified repository</strong>
+                <span>Public references, IDL, policy and documentation.</span>
+              </div>
+
+              <div class="step">
+                <div class="step-number">Step 03</div>
+                <strong>Investor App</strong>
+                <span>Public interface for DMD users and investors.</span>
+              </div>
+
+              <div class="step">
+                <div class="step-number">Step 04</div>
+                <strong>User review</strong>
+                <span>Users can inspect references before taking action.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section wide" id="references">
+            <h2>Official References</h2>
+
+            <div class="links">
+              <a class="linkcard" href="https://longosbongos.github.io/Investor_App_DMD/">
+                <strong>Investor App</strong>
+                <span>Public DApp interface for DMD users and investors</span>
+              </a>
+
+              <a class="linkcard" href="https://github.com/LongosBongos/DMD-Allocatetd">
+                <strong>Verified Repository</strong>
+                <span>Public source of truth for verification, references, IDL and documentation</span>
+              </a>
+
+              <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/policy.html">
+                <strong>Policy</strong>
+                <span>Disclaimer, project policy and public information</span>
+              </a>
+
+              <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt">
+                <strong>Security.txt</strong>
+                <span>Public security contact and responsible disclosure reference</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="section wide">
+            <h2>Project References</h2>
+
+            <div class="meta">
+              <div>
+                <strong>Program ID:</strong>
+                <code>EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro</code>
+              </div>
+
+              <div>
+                <strong>Mint:</strong>
+                <code>3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5</code>
+              </div>
+
+              <div>
+                <strong>Telegram:</strong>
+                <a class="inline" href="https://t.me/diemarkDigitaloffiziell">t.me/diemarkDigitaloffiziell</a>
+              </div>
+
+              <div>
+                <strong>X / Twitter:</strong>
+                <a class="inline" href="https://x.com/DieMarkDigital">x.com/DieMarkDigital</a>
+              </div>
+
+              <div>
+                <strong>Email:</strong>
+                <a class="inline" href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="section notice wide">
+            <h2>Notice</h2>
+
+            <p>
+              DMD is a public Solana-based project structure. This page does not constitute legal,
+              tax or financial advice. DMD does not provide guaranteed profits, guaranteed returns
+              or guaranteed future value. Digital assets are risky. Users act at their own
+              responsibility and risk.
+            </p>
+          </section>
+        </div>
+
+        <footer>
+          © 2026 Die Mark Digital (DMD) • Public Reference Layer
+        </footer>
       </div>
-
-      <h2>Project References</h2>
-      <div class="meta">
-        <div><strong>Program ID:</strong> <code>EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro</code></div>
-        <div><strong>Mint:</strong> <code>3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5</code></div>
-        <div><strong>Telegram:</strong> <a class="inline" href="https://t.me/diemarkDigitaloffiziell">t.me/diemarkDigitaloffiziell</a></div>
-        <div><strong>X / Twitter:</strong> <a class="inline" href="https://x.com/DieMarkDigital">x.com/DieMarkDigital</a></div>
-        <div><strong>Email:</strong> <a class="inline" href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a></div>
-      </div>
-
-      <h2>Notice</h2>
-      <p class="muted">
-        DMD is a public Solana-based project structure. This page does not constitute legal,
-        tax, or financial advice. Users act at their own responsibility and risk.
-      </p>
-
-      <footer>
-        © 2026 Die Mark Digital (DMD)
-      </footer>
     </section>
   </main>
 </body>

@@ -1,29 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Die Mark Digital (DMD) – Verified Public Reference</title>
+  <title>Die Mark Digital (DMD) – Public Reference Layer</title>
   <meta
     name="description"
-    content="Verified public reference for Die Mark Digital (DMD) on Solana. Public proof layer, investor access, allocation references and project documentation."
+    content="Die Mark Digital (DMD) is a public-reference-first digital treasury and value project on Solana with visible documentation, on-chain references, investor access and a verified repository."
   />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Die Mark Digital (DMD)" />
+  <link rel="canonical" href="https://longosbongos.github.io/DMD-Allocatetd/" />
 
   <link rel="icon" type="image/png" href="./DMD.png" />
-  <meta property="og:image" content="./DMD.png" />
-  <meta property="og:title" content="Die Mark Digital (DMD) – Verified Public Reference" />
-  <meta property="og:description" content="Public verification layer for Die Mark Digital on Solana." />
+  <link rel="preload" as="image" href="./DMD.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://longosbongos.github.io/DMD-Allocatetd/" />
+  <meta property="og:title" content="Die Mark Digital (DMD) – Public Reference Layer" />
+  <meta property="og:description" content="Public reference layer for Die Mark Digital on Solana: verify structure, documentation, app access, repository data and on-chain references." />
+  <meta property="og:image" content="https://longosbongos.github.io/DMD-Allocatetd/DMD.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Die Mark Digital (DMD) – Public Reference Layer" />
+  <meta name="twitter:description" content="Verification before trust: public references, visible structure and on-chain authority for DMD." />
+  <meta name="twitter:image" content="https://longosbongos.github.io/DMD-Allocatetd/DMD.png" />
   <meta name="theme-color" content="#06080c" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Die Mark Digital (DMD)",
+    "url": "https://longosbongos.github.io/DMD-Allocatetd/",
+    "description": "Public reference layer for Die Mark Digital (DMD), a Solana-based digital treasury and value project focused on public documentation, visible references and reviewable information.",
+    "inLanguage": ["en", "de"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Die Mark Digital (DMD)",
+      "url": "https://x.com/DieMarkDigital"
+    }
+  }
+  </script>
 
   <style>
     :root {
-      --bg: #06080c;
-      --bg2: #0a0e14;
-      --panel: rgba(13, 18, 25, 0.88);
-      --panel2: rgba(18, 24, 33, 0.92);
+      --bg: #05070b;
+      --bg-deep: #020306;
+      --panel: rgba(13, 18, 25, 0.9);
+      --panel2: rgba(18, 24, 33, 0.94);
+      --panel3: rgba(255, 255, 255, 0.04);
       --card: rgba(255, 255, 255, 0.035);
-      --card2: rgba(212, 175, 55, 0.055);
+      --card-hover: rgba(212, 175, 55, 0.065);
       --text: #edf2f7;
       --muted: #aeb7c4;
       --soft: #78828f;
@@ -31,21 +60,24 @@
       --gold2: #f1cc5b;
       --gold3: #8c6f1f;
       --border: rgba(255, 255, 255, 0.09);
-      --gold-border: rgba(212, 175, 55, 0.28);
+      --gold-border: rgba(212, 175, 55, 0.32);
       --link: #7cc4ff;
       --success: #74e0a4;
-      --shadow: 0 22px 70px rgba(0, 0, 0, 0.46);
-      --radius-lg: 30px;
+      --warning: #ffd166;
+      --shadow: 0 26px 90px rgba(0, 0, 0, 0.52);
+      --shadow-soft: 0 16px 44px rgba(0, 0, 0, 0.28);
+      --radius-xl: 34px;
+      --radius-lg: 28px;
       --radius-md: 20px;
       --radius-sm: 14px;
+      --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      background: var(--bg-deep);
     }
 
     body {
@@ -54,11 +86,12 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.65;
       background:
-        radial-gradient(circle at 18% 8%, rgba(212, 175, 55, 0.16), transparent 32%),
-        radial-gradient(circle at 85% 12%, rgba(241, 204, 91, 0.09), transparent 30%),
-        radial-gradient(circle at 45% 92%, rgba(212, 175, 55, 0.07), transparent 34%),
-        linear-gradient(180deg, #030407 0%, var(--bg) 45%, #05070a 100%);
+        radial-gradient(circle at 16% 6%, rgba(212, 175, 55, 0.18), transparent 34%),
+        radial-gradient(circle at 86% 10%, rgba(241, 204, 91, 0.12), transparent 30%),
+        radial-gradient(circle at 48% 90%, rgba(212, 175, 55, 0.075), transparent 34%),
+        linear-gradient(180deg, #030407 0%, var(--bg) 48%, #04060a 100%);
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -67,30 +100,56 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 80%);
-      opacity: 0.32;
+        linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.58), transparent 84%);
+      opacity: 0.34;
+      z-index: 0;
     }
 
-    a {
-      color: inherit;
+    a { color: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(241, 204, 91, 0.9);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      transform: translateY(-140%);
+      background: var(--gold2);
+      color: #111;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.18s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
     .wrap {
-      width: min(1160px, calc(100% - 32px));
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      padding: 34px 0 70px;
+      padding: 34px 0 74px;
     }
 
     .shell {
       position: relative;
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012)),
+        linear-gradient(180deg, rgba(255,255,255,0.058), rgba(255,255,255,0.012)),
         linear-gradient(140deg, var(--panel), var(--panel2));
       box-shadow: var(--shadow);
     }
@@ -101,38 +160,38 @@
       inset: -1px;
       pointer-events: none;
       background:
-        radial-gradient(circle at 50% -10%, rgba(241, 204, 91, 0.18), transparent 38%),
-        linear-gradient(120deg, transparent, rgba(212,175,55,0.12), transparent);
-      opacity: 0.8;
+        radial-gradient(circle at 50% -10%, rgba(241, 204, 91, 0.19), transparent 38%),
+        linear-gradient(118deg, transparent, rgba(212,175,55,0.13), transparent);
+      opacity: 0.86;
     }
 
     .shell::after {
       content: "";
       position: absolute;
-      right: -140px;
-      top: -160px;
-      width: 420px;
-      height: 420px;
+      right: -148px;
+      top: -178px;
+      width: 455px;
+      height: 455px;
       border-radius: 50%;
-      border: 1px solid rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.13);
       box-shadow:
-        0 0 0 34px rgba(212,175,55,0.025),
-        0 0 0 72px rgba(212,175,55,0.015);
+        0 0 0 36px rgba(212,175,55,0.028),
+        0 0 0 78px rgba(212,175,55,0.016);
       pointer-events: none;
     }
 
     .inner {
       position: relative;
       z-index: 1;
-      padding: 26px;
+      padding: 28px;
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 34px;
+      gap: 18px;
+      margin-bottom: 38px;
     }
 
     .brand-mini {
@@ -141,29 +200,39 @@
       gap: 10px;
       color: var(--gold2);
       font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
+      font-weight: 900;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .brand-logo {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       flex: 0 0 auto;
       border-radius: 50%;
       overflow: hidden;
-      border: 1px solid rgba(241,204,91,0.42);
+      border: 1px solid rgba(241,204,91,0.45);
       background: rgba(212,175,55,0.08);
       box-shadow:
-        0 0 0 5px rgba(212,175,55,0.05),
-        0 0 22px rgba(212,175,55,0.24);
+        0 0 0 5px rgba(212,175,55,0.052),
+        0 0 24px rgba(212,175,55,0.25);
     }
 
-    .brand-logo img {
+    .brand-logo img,
+    .seal img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .nav {
@@ -173,30 +242,63 @@
       gap: 9px;
     }
 
-    .nav a {
+    .nav a,
+    .lang-toggle {
       text-decoration: none;
       color: var(--muted);
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.025);
       border-radius: 999px;
-      padding: 8px 12px;
       font-size: 13px;
-      font-weight: 700;
-      transition: 0.18s ease;
+      font-weight: 800;
+      backdrop-filter: blur(14px);
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
 
     .nav a:hover {
       color: var(--gold2);
       border-color: var(--gold-border);
-      background: rgba(212,175,55,0.055);
+      background: rgba(212,175,55,0.06);
+      transform: translateY(-1px);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px;
+    }
+
+    .lang-toggle button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+      color: var(--muted);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.05em;
+      transition: 0.18s ease;
+    }
+
+    html[data-lang="en"] .lang-toggle button[data-set-lang="en"],
+    html[data-lang="de"] .lang-toggle button[data-set-lang="de"] {
+      color: #111;
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
     }
 
     .hero {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
+      gap: 30px;
       align-items: center;
-      padding: 18px 8px 18px;
+      padding: 18px 8px 20px;
     }
 
     .eyebrow {
@@ -204,23 +306,35 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 16px;
+      font-weight: 900;
+      margin-bottom: 17px;
     }
 
     h1 {
       margin: 0;
       color: var(--gold);
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 0.96;
+      letter-spacing: -0.058em;
+      text-shadow: 0 16px 42px rgba(0, 0, 0, 0.38);
     }
 
     .subtitle {
-      max-width: 760px;
-      margin: 22px 0 0;
-      color: #c9d4e2;
+      max-width: 790px;
+      margin: 24px 0 0;
+      color: #cbd6e3;
       font-size: clamp(17px, 2vw, 22px);
+    }
+
+    .statement {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--gold);
+      border-radius: 16px;
+      color: #f0d781;
+      background: rgba(212,175,55,0.075);
+      font-weight: 900;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
     }
 
     .badge-row {
@@ -231,13 +345,13 @@
     }
 
     .badge {
-      border: 1px solid rgba(212,175,55,0.3);
+      border: 1px solid rgba(212,175,55,0.32);
       color: var(--gold2);
-      background: rgba(212,175,55,0.07);
+      background: rgba(212,175,55,0.072);
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 900;
       white-space: nowrap;
     }
 
@@ -245,26 +359,28 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
+      min-height: 50px;
       padding: 13px 18px;
       border-radius: 14px;
       text-decoration: none;
-      font-weight: 900;
-      border: 1px solid rgba(212,175,55,0.4);
-      transition: 0.18s ease;
+      font-weight: 950;
+      border: 1px solid rgba(212,175,55,0.42);
+      transition: transform 0.18s ease, filter 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
     .btn.primary {
       background: linear-gradient(180deg, var(--gold2), var(--gold));
       color: #111;
-      box-shadow: 0 10px 24px rgba(212,175,55,0.18);
+      box-shadow: 0 12px 28px rgba(212,175,55,0.2);
     }
 
     .btn.secondary {
@@ -279,12 +395,13 @@
 
     .proof-card {
       border: 1px solid var(--gold-border);
-      border-radius: 26px;
-      padding: 24px;
+      border-radius: 28px;
+      padding: 25px;
       background:
-        radial-gradient(circle at top left, rgba(241,204,91,0.13), transparent 42%),
-        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+        radial-gradient(circle at top left, rgba(241,204,91,0.14), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,0.058), rgba(255,255,255,0.018));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), var(--shadow-soft);
+      backdrop-filter: blur(18px);
     }
 
     .proof-title {
@@ -292,7 +409,7 @@
       justify-content: space-between;
       gap: 12px;
       align-items: flex-start;
-      margin-bottom: 20px;
+      margin-bottom: 21px;
     }
 
     .proof-title strong {
@@ -308,8 +425,8 @@
     }
 
     .seal {
-      width: 96px;
-      height: 96px;
+      width: 98px;
+      height: 98px;
       flex: 0 0 auto;
       border-radius: 50%;
       overflow: hidden;
@@ -322,43 +439,37 @@
       box-shadow:
         0 0 0 8px rgba(212,175,55,0.08),
         0 20px 44px rgba(0,0,0,0.45),
-        0 0 38px rgba(212,175,55,0.28);
-    }
-
-    .seal img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+        0 0 42px rgba(212,175,55,0.28);
     }
 
     .proof-list {
       display: grid;
-      gap: 10px;
+      gap: 11px;
     }
 
     .proof-item {
       display: flex;
-      gap: 12px;
+      gap: 13px;
       align-items: flex-start;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 13px 14px;
-      background: rgba(0,0,0,0.16);
+      padding: 14px;
+      background: rgba(0,0,0,0.18);
     }
 
     .check {
-      width: 22px;
-      height: 22px;
+      width: 23px;
+      height: 23px;
       flex: 0 0 auto;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      color: #09110c;
+      color: #07110b;
       background: var(--success);
       font-weight: 1000;
       font-size: 13px;
       margin-top: 2px;
+      box-shadow: 0 0 0 5px rgba(116,224,164,0.08);
     }
 
     .proof-item strong {
@@ -376,7 +487,7 @@
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 18px;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .section {
@@ -384,8 +495,16 @@
       border-radius: 24px;
       padding: 26px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+        linear-gradient(180deg, rgba(255,255,255,0.038), rgba(255,255,255,0.014));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.026);
+      scroll-margin-top: 24px;
+    }
+
+    .section.feature {
+      border-color: rgba(212,175,55,0.22);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(212,175,55,0.075), transparent 35%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.014));
     }
 
     .wide { grid-column: span 12; }
@@ -394,65 +513,74 @@
     h2 {
       margin: 0 0 14px;
       color: var(--text);
-      font-size: clamp(26px, 3.2vw, 38px);
-      line-height: 1.15;
-      letter-spacing: -0.035em;
+      font-size: clamp(27px, 3.2vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
     }
 
-    h3 {
-      margin: 0 0 7px;
-      color: var(--gold2);
-      font-size: 17px;
-    }
-
-    p {
-      margin: 10px 0;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
+    p { margin: 10px 0; }
+    .muted { color: var(--muted); }
 
     .highlight {
       color: var(--gold2);
-      font-weight: 900;
+      font-weight: 950;
     }
 
     .principles,
     .actions,
-    .links {
+    .links,
+    .story-grid,
+    .matter-grid,
+    .quick-grid,
+    .partner-grid {
       display: grid;
       gap: 14px;
       margin-top: 18px;
     }
 
-    .principles {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
+    .principles { grid-template-columns: repeat(3, 1fr); }
     .actions,
-    .links {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .links,
+    .story-grid,
+    .matter-grid,
+    .quick-grid,
+    .partner-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .quick-grid.three { grid-template-columns: repeat(3, 1fr); }
 
     .card,
     .linkcard,
-    .meta div {
+    .meta-card,
+    .quote-card,
+    .quick-card {
       border: 1px solid var(--border);
       border-radius: 18px;
       background: var(--card);
       padding: 17px;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .quote-card,
+    .quick-card.important {
+      border-color: rgba(212,175,55,0.25);
+      background: rgba(212,175,55,0.048);
     }
 
     .card strong,
-    .linkcard strong {
+    .linkcard strong,
+    .meta-card strong,
+    .quote-card strong,
+    .quick-card strong {
       display: block;
       color: var(--gold2);
       margin-bottom: 6px;
     }
 
     .card span,
-    .linkcard span {
+    .linkcard span,
+    .meta-card span,
+    .quote-card span,
+    .quick-card span {
       color: var(--muted);
       font-size: 14px;
     }
@@ -460,12 +588,13 @@
     .linkcard {
       display: block;
       text-decoration: none;
-      transition: 0.18s ease;
     }
 
-    .linkcard:hover {
-      border-color: rgba(212,175,55,0.48);
-      background: rgba(212,175,55,0.055);
+    .linkcard:hover,
+    .card:hover,
+    .quick-card:hover {
+      border-color: rgba(212,175,55,0.5);
+      background: var(--card-hover);
       transform: translateY(-2px);
     }
 
@@ -481,7 +610,7 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 18px;
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.16);
       min-height: 146px;
     }
 
@@ -507,13 +636,23 @@
 
     .meta {
       display: grid;
-      gap: 10px;
+      gap: 12px;
       margin-top: 16px;
       font-size: 15px;
     }
 
-    .meta div {
+    .meta-card {
+      display: grid;
+      gap: 10px;
       word-break: break-word;
+    }
+
+    .meta-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     code {
@@ -522,88 +661,126 @@
       font-size: 0.95em;
     }
 
+    .copy-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .copy-btn,
+    .mini-link {
+      appearance: none;
+      border: 1px solid rgba(212,175,55,0.34);
+      background: rgba(212,175,55,0.058);
+      color: var(--gold2);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 950;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .copy-btn:hover,
+    .mini-link:hover {
+      border-color: rgba(212,175,55,0.56);
+      background: rgba(212,175,55,0.09);
+      transform: translateY(-1px);
+    }
+
     a.inline {
       color: var(--link);
       text-decoration: none;
     }
 
-    a.inline:hover {
-      text-decoration: underline;
-    }
+    a.inline:hover { text-decoration: underline; }
 
     .notice {
-      border-color: rgba(255,204,102,0.22);
+      border-color: rgba(255,204,102,0.24);
       background: rgba(255,204,102,0.045);
     }
 
-    .notice p {
-      color: var(--muted);
+    .notice p { color: var(--muted); }
+
+    .lang { display: none; }
+    html[data-lang="en"] .lang.en,
+    html[data-lang="de"] .lang.de { display: revert; }
+
+    .sr-status {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     footer {
       color: var(--muted);
       text-align: center;
       font-size: 14px;
-      padding: 28px 0 6px;
+      padding: 28px 0 7px;
     }
 
-    @media (max-width: 920px) {
-      .hero {
-        grid-template-columns: 1fr;
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
       }
+    }
 
-      .proof-card {
-        margin-top: 10px;
-      }
-
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .proof-card { margin-top: 10px; }
       .principles,
       .actions,
       .links,
-      .flow {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .half {
-        grid-column: span 12;
-      }
+      .flow,
+      .story-grid,
+      .matter-grid,
+      .quick-grid,
+      .quick-grid.three,
+      .partner-grid { grid-template-columns: 1fr 1fr; }
+      .half { grid-column: span 12; }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       .wrap {
-        width: min(100% - 22px, 1160px);
+        width: min(100% - 22px, var(--max));
         padding-top: 16px;
       }
 
-      .inner {
-        padding: 18px;
-      }
+      .inner { padding: 18px; }
 
       .topbar {
         align-items: flex-start;
         flex-direction: column;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
       }
 
-      .nav {
-        justify-content: flex-start;
-      }
+      .top-actions,
+      .nav { justify-content: flex-start; }
 
-      .hero {
-        padding: 6px 0 10px;
-      }
+      .hero { padding: 6px 0 10px; }
 
       .eyebrow {
         letter-spacing: 0.13em;
         font-size: 11px;
       }
 
-      .subtitle {
-        font-size: 17px;
-      }
+      .subtitle { font-size: 17px; }
 
-      .btn {
-        width: 100%;
-      }
+      .cta { gap: 10px; }
+
+      .btn { width: 100%; }
 
       .section {
         padding: 20px;
@@ -613,68 +790,142 @@
       .principles,
       .actions,
       .links,
-      .flow {
-        grid-template-columns: 1fr;
-      }
+      .flow,
+      .story-grid,
+      .matter-grid,
+      .quick-grid,
+      .quick-grid.three,
+      .partner-grid { grid-template-columns: 1fr; }
 
-      .proof-title {
-        flex-direction: column-reverse;
-      }
+      .proof-title { flex-direction: column-reverse; }
 
       .seal {
         width: 78px;
         height: 78px;
+      }
+
+      .meta-line {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand-mini {
+        white-space: normal;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      body::before,
+      .shell::before,
+      .shell::after,
+      .nav,
+      .lang-toggle,
+      .cta,
+      .copy-row {
+        display: none !important;
+      }
+
+      .shell,
+      .section,
+      .card,
+      .linkcard,
+      .meta-card,
+      .quick-card,
+      .quote-card,
+      .step,
+      .proof-card {
+        box-shadow: none;
+        background: #fff;
+        border-color: #bbb;
+        color: #111;
+      }
+
+      .muted,
+      .card span,
+      .step span,
+      .linkcard span {
+        color: #333;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="shell">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="copy-status" class="sr-status" aria-live="polite"></div>
+
+  <main class="wrap" id="main-content">
+    <section class="shell" aria-label="Die Mark Digital public reference page">
       <div class="inner">
         <header class="topbar">
           <div class="brand-mini">
-            <span class="brand-logo">
-              <img src="./DMD.png" alt="DMD Logo" />
-            </span>
+            <span class="brand-logo"><img src="./DMD.png" alt="DMD Logo" /></span>
             DMD Public Reference
           </div>
 
-          <nav class="nav" aria-label="Primary navigation">
-            <a href="#why">Why DMD</a>
-            <a href="#principles">Principles</a>
-            <a href="#verify">Verification</a>
-            <a href="#references">References</a>
-          </nav>
+          <div class="top-actions">
+            <nav class="nav" aria-label="Primary navigation">
+              <a href="#why"><span class="lang en">Why DMD</span><span class="lang de">Warum DMD</span></a>
+              <a href="#origin"><span class="lang en">Origin</span><span class="lang de">Entstehung</span></a>
+              <a href="#verify"><span class="lang en">Verification</span><span class="lang de">Verifikation</span></a>
+              <a href="#references"><span class="lang en">References</span><span class="lang de">Referenzen</span></a>
+            </nav>
+
+            <div class="lang-toggle" aria-label="Language switch">
+              <button type="button" data-set-lang="en" aria-label="Switch to English">EN</button>
+              <button type="button" data-set-lang="de" aria-label="Auf Deutsch umschalten">DE</button>
+            </div>
+          </div>
         </header>
 
         <section class="hero">
           <div>
-            <div class="eyebrow">Transparent • Secure • Verifiable • Community Driven</div>
+            <div class="eyebrow">
+              <span class="lang en">Transparent • Secure • Verifiable • Community Driven</span>
+              <span class="lang de">Transparent • Sicher • Überprüfbar • Community-getrieben</span>
+            </div>
 
             <h1>Die Mark Digital<br>(DMD)</h1>
 
-            <p class="subtitle">
-              A Solana-based digital value product built around public verification,
-              treasury visibility and long-term infrastructure instead of empty hype.
+            <p class="subtitle lang en">
+              DMD is a public-reference-first digital treasury and value project designed
+              to make trust more reviewable through visible structure, public documentation
+              and on-chain verification.
             </p>
 
-            <div class="badge-row">
+            <p class="subtitle lang de">
+              DMD ist ein digitales Treasury- und Wertprojekt mit öffentlicher Referenzstruktur.
+              Der Kern: Vertrauen soll durch sichtbare Struktur, öffentliche Dokumentation und
+              On-Chain-Verifikation nachvollziehbarer werden.
+            </p>
+
+            <div class="statement">
+              <span class="lang en">DMD was created because trust in crypto should not just be claimed. It should be reviewable.</span>
+              <span class="lang de">DMD wurde geschaffen, weil Vertrauen in Krypto nicht nur behauptet werden sollte. Es sollte überprüfbar sein.</span>
+            </div>
+
+            <div class="badge-row" aria-label="DMD key attributes">
               <span class="badge">Solana</span>
-              <span class="badge">Verified References</span>
+              <span class="badge"><span class="lang en">Verified References</span><span class="lang de">Verifizierte Referenzen</span></span>
               <span class="badge">Investor App</span>
               <span class="badge">Treasury & Vault</span>
-              <span class="badge">Public Documentation</span>
+              <span class="badge"><span class="lang en">Public Documentation</span><span class="lang de">Öffentliche Dokumentation</span></span>
             </div>
 
             <div class="cta">
-              <a class="btn primary" href="https://longosbongos.github.io/Investor_App_DMD/">
-                Open Investor App
+              <a class="btn primary" href="https://longosbongos.github.io/Investor_App_DMD/" target="_blank" rel="noopener noreferrer">
+                <span class="lang en">Open Investor App</span>
+                <span class="lang de">Investor App öffnen</span>
               </a>
 
-              <a class="btn secondary" href="https://github.com/LongosBongos/DMD-Allocatetd">
-                View Verified Repository
+              <a class="btn secondary" href="https://github.com/LongosBongos/DMD-Allocatetd" target="_blank" rel="noopener noreferrer">
+                <span class="lang en">View Verified Repository</span>
+                <span class="lang de">Verified Repository ansehen</span>
               </a>
             </div>
           </div>
@@ -682,37 +933,39 @@
           <aside class="proof-card" aria-label="DMD verification stack">
             <div class="proof-title">
               <div>
-                <strong>Verification before trust.</strong>
-                <span>Public references, visible structure and on-chain authority.</span>
+                <strong><span class="lang en">Verification before trust.</span><span class="lang de">Verifikation vor Vertrauen.</span></strong>
+                <span class="lang en">Public references, visible structure and on-chain authority.</span>
+                <span class="lang de">Öffentliche Referenzen, sichtbare Struktur und On-Chain-Basis.</span>
               </div>
 
-              <div class="seal">
-                <img src="./DMD.png" alt="Die Mark Digital DMD Logo" />
-              </div>
+              <div class="seal"><img src="./DMD.png" alt="Die Mark Digital DMD Logo" /></div>
             </div>
 
             <div class="proof-list">
               <div class="proof-item">
-                <div class="check">✓</div>
+                <div class="check" aria-hidden="true">✓</div>
                 <div>
-                  <strong>On-chain program</strong>
-                  <span>The Solana program remains the authoritative basis.</span>
+                  <strong><span class="lang en">On-chain program</span><span class="lang de">On-Chain-Programm</span></strong>
+                  <span class="lang en">The Solana program remains the authoritative basis.</span>
+                  <span class="lang de">Das Solana-Programm bleibt die autoritative Grundlage.</span>
                 </div>
               </div>
 
               <div class="proof-item">
-                <div class="check">✓</div>
+                <div class="check" aria-hidden="true">✓</div>
                 <div>
-                  <strong>Verified repository</strong>
-                  <span>Public references, IDL, policy and documentation.</span>
+                  <strong><span class="lang en">Verified repository</span><span class="lang de">Verified Repository</span></strong>
+                  <span class="lang en">Public references, IDL, policy and documentation.</span>
+                  <span class="lang de">Öffentliche Referenzen, IDL, Policy und Dokumentation.</span>
                 </div>
               </div>
 
               <div class="proof-item">
-                <div class="check">✓</div>
+                <div class="check" aria-hidden="true">✓</div>
                 <div>
                   <strong>Investor App</strong>
-                  <span>Public access layer for users and investors.</span>
+                  <span class="lang en">Public access layer for users and interested parties.</span>
+                  <span class="lang de">Öffentliche Zugangsebene für Nutzer und Interessenten.</span>
                 </div>
               </div>
             </div>
@@ -720,228 +973,318 @@
         </section>
 
         <div class="grid">
+          <section class="section feature wide" aria-label="60 second explanation">
+            <h2><span class="lang en">The 60-Second Explanation</span><span class="lang de">Die 60-Sekunden-Erklärung</span></h2>
+
+            <div class="quick-grid three">
+              <div class="quick-card important">
+                <strong><span class="lang en">What DMD is</span><span class="lang de">Was DMD ist</span></strong>
+                <span class="lang en">A public-reference-first digital treasury and value project built around documentation, app access and verifiable on-chain references.</span>
+                <span class="lang de">Ein digitales Treasury- und Wertprojekt mit öffentlicher Referenzstruktur, Dokumentation, App-Zugang und überprüfbaren On-Chain-Referenzen.</span>
+              </div>
+
+              <div class="quick-card">
+                <strong><span class="lang en">What can be reviewed</span><span class="lang de">Was geprüft werden kann</span></strong>
+                <span class="lang en">The public page, repository, policy, security reference, program ID, mint, investor app and public project channels.</span>
+                <span class="lang de">Die Public Page, das Repository, die Policy, Security-Referenz, Program ID, Mint, Investor App und öffentliche Projektkanäle.</span>
+              </div>
+
+              <div class="quick-card">
+                <strong><span class="lang en">What is not promised</span><span class="lang de">Was nicht versprochen wird</span></strong>
+                <span class="lang en">No guaranteed profit, no guaranteed liquidity and no guaranteed future value. The purpose is reviewability, not blind certainty.</span>
+                <span class="lang de">Kein garantierter Gewinn, keine garantierte Liquidität und kein garantierter zukünftiger Wert. Ziel ist Prüfbarkeit, nicht blinde Sicherheit.</span>
+              </div>
+            </div>
+          </section>
+
           <section class="section wide" id="why">
-            <h2>Why DMD Exists</h2>
+            <h2><span class="lang en">Why DMD Exists</span><span class="lang de">Warum DMD existiert</span></h2>
 
-            <p>
-              <strong>Die Mark Digital (DMD)</strong> was created from a simple belief:
-              <span class="highlight">trust should be earned through transparency</span>,
-              not requested through marketing.
-            </p>
+            <div class="lang en">
+              <p><strong>Die Mark Digital (DMD)</strong> was created from a simple belief: <span class="highlight">trust should be earned through transparency</span>, not requested through marketing.</p>
+              <p>Many digital assets rely on short-term attention, speculation and constant hype. DMD was designed to follow a different path — one based on public references, verifiable infrastructure, treasury awareness and long-term responsibility.</p>
+              <p>DMD is not intended to be just another token. It is designed as a <strong>digital value product</strong> that allows users, interested parties and observers to independently review public information and follow the project through documentation, repositories and on-chain references.</p>
+              <p>The idea behind DMD is simple: build a transparent digital asset ecosystem where openness, accountability and verifiable information matter more than promises.</p>
+            </div>
 
-            <p>
-              Many digital assets rely on short-term attention, speculation and constant hype.
-              DMD was designed to follow a different path — one based on public references,
-              verifiable infrastructure, treasury awareness and long-term responsibility.
-            </p>
+            <div class="lang de">
+              <p><strong>Die Mark Digital (DMD)</strong> entstand aus einer einfachen Überzeugung: <span class="highlight">Vertrauen sollte durch Transparenz verdient werden</span>, nicht durch Marketing eingefordert werden.</p>
+              <p>Viele digitale Assets leben von kurzfristiger Aufmerksamkeit, Spekulation und ständigem Hype. DMD wurde bewusst anders gedacht — mit öffentlichen Referenzen, überprüfbarer Infrastruktur, Treasury-Bewusstsein und langfristiger Verantwortung.</p>
+              <p>DMD soll nicht einfach nur ein weiterer Token sein. Es ist als <strong>digitales Wertprodukt</strong> gedacht, bei dem Nutzer, Interessenten und Beobachter öffentliche Informationen selbst prüfen und das Projekt über Dokumentation, Repositories und On-Chain-Referenzen nachvollziehen können.</p>
+              <p>Die Idee hinter DMD ist einfach: ein transparentes digitales Asset-Ökosystem aufzubauen, in dem Offenheit, Verantwortlichkeit und überprüfbare Informationen wichtiger sind als Versprechen.</p>
+            </div>
+          </section>
 
-            <p>
-              DMD is not intended to be just another token. It is designed as a
-              <strong>digital value product</strong> that allows users, investors and observers
-              to independently review public information and follow the project through
-              documentation, repositories and on-chain references.
-            </p>
+          <section class="section wide" id="origin">
+            <h2><span class="lang en">How DMD Started</span><span class="lang de">Wie DMD entstanden ist</span></h2>
 
-            <p>
-              The idea behind DMD is simple: build a transparent digital asset ecosystem where
-              openness, accountability and verifiable information matter more than promises.
-            </p>
+            <div class="lang en">
+              <p>DMD did not start from the idea of launching just another token. It started from frustration with how much of crypto still relies on hype, FOMO and blind trust.</p>
+              <p>Too many projects appear large on the surface while offering little public structure behind them: no clear treasury logic, no visible technical reference, no transparent project architecture and no meaningful accountability to the people entering the system.</p>
+              <p>DMD was built to take a different route. The goal was not to create a fast pump-and-dump token, but a digital value product with structure, rules, public documentation and a long-term foundation.</p>
+              <p>That is why DMD combines a public reference layer, an investor-facing app, an on-chain program, treasury and vault logic, and a public repository of project information. The intention is simple: build something that does not have to hide what it is.</p>
+            </div>
+
+            <div class="lang de">
+              <p>DMD entstand nicht aus der Idee, einfach nur einen weiteren Token auf den Markt zu bringen. Der Ausgangspunkt war die Frustration darüber, wie stark große Teile des Kryptomarkts noch immer von Hype, FOMO und blindem Vertrauen leben.</p>
+              <p>Viele Projekte wirken nach außen groß, bieten im Hintergrund aber kaum nachvollziehbare Struktur: keine klare Treasury-Logik, keine sichtbare technische Referenz, keine transparente Projektarchitektur und keine echte Verantwortung gegenüber den Menschen, die in das System eintreten.</p>
+              <p>DMD sollte bewusst einen anderen Weg gehen. Das Ziel war nicht, einen schnellen Pump-and-Dump-Token zu bauen, sondern ein digitales Wertprodukt mit Struktur, Regeln, öffentlicher Dokumentation und langfristiger Grundlage.</p>
+              <p>Deshalb verbindet DMD eine öffentliche Reference Page, eine Investor App, ein On-Chain-Programm, Treasury- und Vault-Logik sowie ein öffentliches Repository mit Projektinformationen. Die Grundidee ist einfach: etwas zu bauen, das nicht verstecken muss, was es ist.</p>
+            </div>
+
+            <div class="story-grid">
+              <div class="quote-card">
+                <strong><span class="lang en">Substance before hype</span><span class="lang de">Substanz vor Hype</span></strong>
+                <span class="lang en">DMD is positioned around structure first, trust second and long-term growth after that.</span>
+                <span class="lang de">DMD ist auf Substanz zuerst, Vertrauen danach und langfristiges Wachstum ausgelegt.</span>
+              </div>
+
+              <div class="quote-card">
+                <strong><span class="lang en">Digital value thinking</span><span class="lang de">Digitales Wertdenken</span></strong>
+                <span class="lang en">The gold and silver comparison is philosophical: scarcity, structure, reviewability and long-term trust — not a promise of guaranteed value.</span>
+                <span class="lang de">Der Vergleich mit Gold und Silber ist philosophisch gemeint: Knappheit, Struktur, Nachvollziehbarkeit und langfristiges Vertrauen — kein Versprechen auf garantierten Wert.</span>
+              </div>
+            </div>
           </section>
 
           <section class="section wide" id="principles">
             <h2>DMD Principles</h2>
 
             <div class="principles">
-              <div class="card">
-                <strong>Transparency First</strong>
-                <span>Public references, open documentation and visible project information.</span>
-              </div>
-
-              <div class="card">
-                <strong>On-Chain Truth</strong>
-                <span>The Solana program remains the authoritative basis for system behavior.</span>
-              </div>
-
-              <div class="card">
-                <strong>Verification Before Trust</strong>
-                <span>Users should be able to review references instead of relying on founder claims.</span>
-              </div>
-
-              <div class="card">
-                <strong>Long-Term Thinking</strong>
-                <span>DMD is built around sustainable development, not short-term attention.</span>
-              </div>
-
-              <div class="card">
-                <strong>Treasury Awareness</strong>
-                <span>Treasury, vault and allocation references are part of the public structure.</span>
-              </div>
-
-              <div class="card">
-                <strong>Community Driven</strong>
-                <span>DMD grows through users, supporters and transparent communication.</span>
-              </div>
+              <div class="card"><strong><span class="lang en">Transparency First</span><span class="lang de">Transparenz zuerst</span></strong><span class="lang en">Public references, open documentation and visible project information.</span><span class="lang de">Öffentliche Referenzen, offene Dokumentation und sichtbare Projektinformationen.</span></div>
+              <div class="card"><strong><span class="lang en">On-Chain Basis</span><span class="lang de">On-Chain-Basis</span></strong><span class="lang en">The Solana program remains the authoritative basis for system behavior.</span><span class="lang de">Das Solana-Programm bleibt die autoritative Grundlage für das Systemverhalten.</span></div>
+              <div class="card"><strong><span class="lang en">Verification Before Trust</span><span class="lang de">Verifikation vor Vertrauen</span></strong><span class="lang en">Users should be able to review references instead of relying on founder claims.</span><span class="lang de">Nutzer sollen Referenzen prüfen können, statt nur Gründer-Aussagen glauben zu müssen.</span></div>
+              <div class="card"><strong><span class="lang en">Long-Term Thinking</span><span class="lang de">Langfristiges Denken</span></strong><span class="lang en">DMD is built around sustainable development, not short-term attention.</span><span class="lang de">DMD ist auf nachhaltige Entwicklung ausgelegt, nicht auf kurzfristige Aufmerksamkeit.</span></div>
+              <div class="card"><strong><span class="lang en">Treasury Awareness</span><span class="lang de">Treasury-Bewusstsein</span></strong><span class="lang en">Treasury, vault and allocation references are part of the public structure.</span><span class="lang de">Treasury-, Vault- und Allocation-Referenzen sind Teil der öffentlichen Struktur.</span></div>
+              <div class="card"><strong><span class="lang en">Community Driven</span><span class="lang de">Community-getrieben</span></strong><span class="lang en">DMD grows through users, supporters and transparent communication.</span><span class="lang de">DMD wächst durch Nutzer, Unterstützer und transparente Kommunikation.</span></div>
             </div>
           </section>
 
-          <section class="section wide">
-            <h2>What Users Can Do</h2>
+          <section class="section feature wide">
+            <h2><span class="lang en">Why This Structure Matters</span><span class="lang de">Warum diese Struktur wichtig ist</span></h2>
 
-            <div class="actions">
-              <div class="card">
-                <strong>Connect Wallet</strong>
-                <span>Access the Investor App through a compatible Solana wallet.</span>
-              </div>
+            <div class="lang en">
+              <p>DMD is built so users do not have to rely only on founder claims, social media posts or scattered information. The public reference layer, verified repository and on-chain program create a clearer path to review the project before interacting with it.</p>
+              <p>This does not remove risk. It does create a more transparent and reviewable environment than a project that offers only marketing, promises or hidden structure.</p>
+            </div>
 
-              <div class="card">
-                <strong>Self-Whitelist</strong>
-                <span>Eligible users can unlock DMD access directly through the app.</span>
-              </div>
+            <div class="lang de">
+              <p>DMD wird so aufgebaut, dass Nutzer nicht nur auf Gründer-Aussagen, Social-Media-Beiträge oder verstreute Informationen angewiesen sind. Die öffentliche Reference Page, das Verified Repository und das On-Chain-Programm schaffen einen klareren Prüfpfad, bevor jemand mit dem System interagiert.</p>
+              <p>Das entfernt kein Risiko. Es schafft aber ein transparenteres und besser prüfbares Umfeld als ein Projekt, das nur Marketing, Versprechen oder versteckte Struktur bietet.</p>
+            </div>
 
-              <div class="card">
-                <strong>Buy, Sell & Claim</strong>
-                <span>Use the available app functions according to the active system state.</span>
-              </div>
-
-              <div class="card">
-                <strong>Verify References</strong>
-                <span>Review public project references, repository data and on-chain information.</span>
-              </div>
+            <div class="matter-grid">
+              <div class="card"><strong><span class="lang en">Review before action</span><span class="lang de">Prüfen vor Handeln</span></strong><span class="lang en">Visitors should understand what exists, what can be checked and what still requires trust.</span><span class="lang de">Besucher sollen verstehen, was existiert, was geprüft werden kann und wo weiterhin Vertrauen nötig ist.</span></div>
+              <div class="card"><strong><span class="lang en">Structured access</span><span class="lang de">Strukturierter Zugang</span></strong><span class="lang en">App, repository, policy, public channels and on-chain references are connected in one clear entry point.</span><span class="lang de">App, Repository, Policy, öffentliche Kanäle und On-Chain-Referenzen werden an einem klaren Einstiegspunkt verbunden.</span></div>
             </div>
           </section>
 
           <section class="section half" id="verify">
             <h2>Verified Public Reference</h2>
 
-            <p>
-              This page provides the public reference layer for <strong>Die Mark Digital (DMD)</strong>
-              on Solana. It complements the live Investor App and the public verified repository.
-            </p>
+            <div class="lang en">
+              <p>This page provides the public reference layer for <strong>Die Mark Digital (DMD)</strong> on Solana. It complements the live Investor App and the public verified repository.</p>
+              <p>The authoritative basis for system behavior remains the <strong>on-chain program</strong>. This page serves as a structured public entry point to the official DMD references.</p>
+            </div>
 
-            <p>
-              The authoritative basis for system behavior remains the <strong>on-chain program</strong>.
-              This page serves as a structured public entry point to the official DMD references.
-            </p>
+            <div class="lang de">
+              <p>Diese Seite bildet die öffentliche Referenzebene für <strong>Die Mark Digital (DMD)</strong> auf Solana. Sie ergänzt die live zugängliche Investor App und das öffentliche Verified Repository.</p>
+              <p>Die autoritative Grundlage für das Systemverhalten bleibt das <strong>On-Chain-Programm</strong>. Diese Seite dient als strukturierter öffentlicher Einstieg zu den offiziellen DMD-Referenzen.</p>
+            </div>
           </section>
 
           <section class="section half">
-            <h2>How to Read This Page</h2>
+            <h2><span class="lang en">How to Read This Page</span><span class="lang de">Wie diese Seite zu lesen ist</span></h2>
 
-            <p>
-              This page is not the proof itself. It is a public access layer that points to the
-              relevant DMD references.
-            </p>
+            <div class="lang en">
+              <p>This page is not the proof itself. It is a public access layer that points to the relevant DMD references.</p>
+              <p>The chain remains the source of truth. The repository provides verification. The Investor App provides user access.</p>
+            </div>
 
-            <p>
-              The chain remains the source of truth. The repository provides verification.
-              The Investor App provides user access.
-            </p>
+            <div class="lang de">
+              <p>Diese Seite ist nicht der Beweis selbst. Sie ist eine öffentliche Zugangsebene, die auf die relevanten DMD-Referenzen verweist.</p>
+              <p>Die Blockchain bleibt die maßgebliche Quelle. Das Repository liefert die Verifikation. Die Investor App stellt den Nutzerzugang bereit.</p>
+            </div>
           </section>
 
           <section class="section wide">
-            <h2>Verification Flow</h2>
+            <h2><span class="lang en">Verification Flow</span><span class="lang de">Verifikationspfad</span></h2>
 
             <div class="flow">
-              <div class="step">
-                <div class="step-number">Step 01</div>
-                <strong>On-chain program</strong>
-                <span>System behavior is anchored on Solana.</span>
-              </div>
-
-              <div class="step">
-                <div class="step-number">Step 02</div>
-                <strong>Verified repository</strong>
-                <span>Public references, IDL, policy and documentation.</span>
-              </div>
-
-              <div class="step">
-                <div class="step-number">Step 03</div>
-                <strong>Investor App</strong>
-                <span>Public interface for DMD users and investors.</span>
-              </div>
-
-              <div class="step">
-                <div class="step-number">Step 04</div>
-                <strong>User review</strong>
-                <span>Users can inspect references before taking action.</span>
-              </div>
+              <div class="step"><div class="step-number">Step 01</div><strong><span class="lang en">On-chain program</span><span class="lang de">On-Chain-Programm</span></strong><span class="lang en">System behavior is anchored on Solana.</span><span class="lang de">Das Systemverhalten ist auf Solana verankert.</span></div>
+              <div class="step"><div class="step-number">Step 02</div><strong><span class="lang en">Verified repository</span><span class="lang de">Verified Repository</span></strong><span class="lang en">Public references, IDL, policy and documentation.</span><span class="lang de">Öffentliche Referenzen, IDL, Policy und Dokumentation.</span></div>
+              <div class="step"><div class="step-number">Step 03</div><strong>Investor App</strong><span class="lang en">Public interface for DMD users and interested parties.</span><span class="lang de">Öffentliche Schnittstelle für DMD-Nutzer und Interessenten.</span></div>
+              <div class="step"><div class="step-number">Step 04</div><strong><span class="lang en">User review</span><span class="lang de">Nutzerprüfung</span></strong><span class="lang en">Users can inspect references before taking action.</span><span class="lang de">Nutzer können Referenzen prüfen, bevor sie handeln.</span></div>
             </div>
           </section>
 
           <section class="section wide" id="references">
-            <h2>Official References</h2>
+            <h2><span class="lang en">Official References</span><span class="lang de">Offizielle Referenzen</span></h2>
 
             <div class="links">
-              <a class="linkcard" href="https://longosbongos.github.io/Investor_App_DMD/">
-                <strong>Investor App</strong>
-                <span>Public DApp interface for DMD users and investors</span>
-              </a>
-
-              <a class="linkcard" href="https://github.com/LongosBongos/DMD-Allocatetd">
-                <strong>Verified Repository</strong>
-                <span>Public source of truth for verification, references, IDL and documentation</span>
-              </a>
-
-              <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/policy.html">
-                <strong>Policy</strong>
-                <span>Disclaimer, project policy and public information</span>
-              </a>
-
-              <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt">
-                <strong>Security.txt</strong>
-                <span>Public security contact and responsible disclosure reference</span>
-              </a>
+              <a class="linkcard" href="https://longosbongos.github.io/Investor_App_DMD/" target="_blank" rel="noopener noreferrer"><strong>Investor App</strong><span class="lang en">Public DApp interface for DMD users and interested parties</span><span class="lang de">Öffentliche DApp-Schnittstelle für DMD-Nutzer und Interessenten</span></a>
+              <a class="linkcard" href="https://github.com/LongosBongos/DMD-Allocatetd" target="_blank" rel="noopener noreferrer"><strong>Verified Repository</strong><span class="lang en">Public source of truth for verification, references, IDL and documentation</span><span class="lang de">Öffentliche Referenz für Verifikation, Referenzen, IDL und Dokumentation</span></a>
+              <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/policy.html" target="_blank" rel="noopener noreferrer"><strong>Policy</strong><span class="lang en">Disclaimer, project policy and public information</span><span class="lang de">Disclaimer, Projekt-Policy und öffentliche Informationen</span></a>
+              <a class="linkcard" href="https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt" target="_blank" rel="noopener noreferrer"><strong>Security.txt</strong><span class="lang en">Public security contact and responsible disclosure reference</span><span class="lang de">Öffentlicher Sicherheitskontakt und Responsible-Disclosure-Referenz</span></a>
             </div>
           </section>
 
           <section class="section wide">
-            <h2>Project References</h2>
+            <h2><span class="lang en">Core Project Details</span><span class="lang de">Kernreferenzen des Projekts</span></h2>
 
             <div class="meta">
-              <div>
-                <strong>Program ID:</strong>
-                <code>EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro</code>
+              <div class="meta-card">
+                <div class="meta-line"><strong>Program ID</strong><code>EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro</code></div>
+                <div class="copy-row">
+                  <button class="copy-btn" type="button" data-copy-target="EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro"><span class="lang en">Copy</span><span class="lang de">Kopieren</span></button>
+                  <a class="mini-link" href="https://solscan.io/account/EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro" target="_blank" rel="noopener noreferrer">Explorer</a>
+                </div>
               </div>
 
-              <div>
-                <strong>Mint:</strong>
-                <code>3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5</code>
+              <div class="meta-card">
+                <div class="meta-line"><strong>Mint</strong><code>3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5</code></div>
+                <div class="copy-row">
+                  <button class="copy-btn" type="button" data-copy-target="3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5"><span class="lang en">Copy</span><span class="lang de">Kopieren</span></button>
+                  <a class="mini-link" href="https://solscan.io/token/3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5" target="_blank" rel="noopener noreferrer">Explorer</a>
+                </div>
               </div>
 
-              <div>
-                <strong>Telegram:</strong>
-                <a class="inline" href="https://t.me/diemarkDigitaloffiziell">t.me/diemarkDigitaloffiziell</a>
+              <div class="meta-card">
+                <strong><span class="lang en">Public Channels</span><span class="lang de">Öffentliche Kanäle</span></strong>
+                <span>Telegram: <a class="inline" href="https://t.me/diemarkDigitaloffiziell" target="_blank" rel="noopener noreferrer">t.me/diemarkDigitaloffiziell</a></span>
+                <span>X / Twitter: <a class="inline" href="https://x.com/DieMarkDigital" target="_blank" rel="noopener noreferrer">x.com/DieMarkDigital</a></span>
+                <span>Email: <a class="inline" href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section wide">
+            <h2><span class="lang en">System Access</span><span class="lang de">Systemzugang</span></h2>
+
+            <div class="actions">
+              <div class="card"><strong><span class="lang en">Connect Wallet</span><span class="lang de">Wallet verbinden</span></strong><span class="lang en">Access the Investor App through a compatible Solana wallet.</span><span class="lang de">Zugriff auf die Investor App über eine kompatible Solana-Wallet.</span></div>
+              <div class="card"><strong>Self-Whitelist</strong><span class="lang en">Eligible users can unlock DMD access directly through the app when the active rules allow it.</span><span class="lang de">Berechtigte Nutzer können den DMD-Zugang direkt über die App freischalten, wenn die aktiven Regeln es erlauben.</span></div>
+              <div class="card"><strong><span class="lang en">Buy, Claim & Sell Status</span><span class="lang de">Buy-, Claim- & Sell-Status</span></strong><span class="lang en">The app displays available functions according to the live system state. Some paths may be restricted by protocol protection rules.</span><span class="lang de">Die App zeigt verfügbare Funktionen entsprechend dem Live-Systemstatus. Einzelne Wege können durch Schutzregeln des Protokolls eingeschränkt sein.</span></div>
+              <div class="card"><strong><span class="lang en">Verify References</span><span class="lang de">Referenzen prüfen</span></strong><span class="lang en">Review public project references, repository data and on-chain information before taking action.</span><span class="lang de">Öffentliche Projekt-Referenzen, Repository-Daten und On-Chain-Informationen prüfen, bevor gehandelt wird.</span></div>
+            </div>
+          </section>
+
+          <section class="section wide">
+            <h2><span class="lang en">DMD Structure Path</span><span class="lang de">DMD Strukturpfad</span></h2>
+
+            <div class="flow">
+              <div class="step">
+                <div class="step-number">Layer 01</div>
+                <strong><span class="lang en">Public foundation</span><span class="lang de">Öffentliche Grundlage</span></strong>
+                <span class="lang en">Reference page, repository, policy, security contact and public project coordinates.</span>
+                <span class="lang de">Reference Page, Repository, Policy, Security-Kontakt und öffentliche Projektkoordinaten.</span>
               </div>
 
-              <div>
-                <strong>X / Twitter:</strong>
-                <a class="inline" href="https://x.com/DieMarkDigital">x.com/DieMarkDigital</a>
+              <div class="step">
+                <div class="step-number">Layer 02</div>
+                <strong><span class="lang en">Investor access</span><span class="lang de">Investor-Zugang</span></strong>
+                <span class="lang en">Investor App, wallet connection, dashboard functions and transparent user entry points.</span>
+                <span class="lang de">Investor App, Wallet-Anbindung, Dashboard-Funktionen und transparente Nutzerzugänge.</span>
               </div>
 
-              <div>
-                <strong>Email:</strong>
-                <a class="inline" href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a>
+              <div class="step">
+                <div class="step-number">Layer 03</div>
+                <strong><span class="lang en">Treasury layer</span><span class="lang de">Treasury-Layer</span></strong>
+                <span class="lang en">Treasury and vault structure, documented rules and controlled system logic instead of hype-first expansion.</span>
+                <span class="lang de">Treasury- und Vault-Struktur, dokumentierte Regeln und kontrollierte Systemlogik statt Hype-zuerst-Expansion.</span>
               </div>
+
+              <div class="step">
+                <div class="step-number">Layer 04</div>
+                <strong><span class="lang en">Long-term utility</span><span class="lang de">Langfristiger Nutzen</span></strong>
+                <span class="lang en">Further modules, partner-facing infrastructure and practical long-term use around DMD as a digital value product.</span>
+                <span class="lang de">Weitere Module, partnerfähige Infrastruktur und praktischer langfristiger Nutzen rund um DMD als digitales Wertprodukt.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section feature wide">
+            <h2><span class="lang en">For Reviewers, Builders & Partners</span><span class="lang de">Für Prüfer, Builder & Partner</span></h2>
+
+            <div class="lang en">
+              <p>DMD is presented publicly so people can review it before they decide what they think about it. Serious feedback, technical review, strategic discussion and partner conversations are welcome through the public channels.</p>
+              <p>The preferred first step is not blind participation. The preferred first step is understanding: read the page, open the repository, check the references, review the app and then form an independent opinion.</p>
+            </div>
+
+            <div class="lang de">
+              <p>DMD wird öffentlich dargestellt, damit Menschen es prüfen können, bevor sie sich eine Meinung bilden. Sachliches Feedback, technische Prüfung, strategische Gespräche und Partnerdialoge sind über die öffentlichen Kanäle willkommen.</p>
+              <p>Der bevorzugte erste Schritt ist keine blinde Teilnahme. Der bevorzugte erste Schritt ist Verständnis: Seite lesen, Repository öffnen, Referenzen prüfen, App ansehen und sich dann ein eigenes Urteil bilden.</p>
+            </div>
+
+            <div class="partner-grid">
+              <a class="linkcard" href="https://github.com/LongosBongos/DMD-Allocatetd" target="_blank" rel="noopener noreferrer">
+                <strong><span class="lang en">Review the source</span><span class="lang de">Quelle prüfen</span></strong>
+                <span class="lang en">Open the verified repository and inspect the public reference material.</span>
+                <span class="lang de">Öffne das Verified Repository und prüfe die öffentlichen Referenzmaterialien.</span>
+              </a>
+
+              <a class="linkcard" href="https://t.me/diemarkDigitaloffiziell" target="_blank" rel="noopener noreferrer">
+                <strong><span class="lang en">Join the discussion</span><span class="lang de">Diskussion beitreten</span></strong>
+                <span class="lang en">Use the public community channel for questions, feedback and project discussion.</span>
+                <span class="lang de">Nutze den öffentlichen Community-Kanal für Fragen, Feedback und Projektdiskussion.</span>
+              </a>
             </div>
           </section>
 
           <section class="section notice wide">
             <h2>Notice</h2>
-
-            <p>
-              DMD is a public Solana-based project structure. This page does not constitute legal,
-              tax or financial advice. DMD does not provide guaranteed profits, guaranteed returns
-              or guaranteed future value. Digital assets are risky. Users act at their own
-              responsibility and risk.
-            </p>
+            <p class="lang en">DMD is a public Solana-based project structure and reference layer. This page is provided for public information only and does not constitute legal, tax or financial advice. DMD does not promise guaranteed returns, guaranteed liquidity or guaranteed future value. Digital assets involve risk, and every user remains responsible for their own decisions.</p>
+            <p class="lang de">DMD ist eine öffentliche Solana-basierte Projektstruktur und Referenzebene. Diese Seite dient ausschließlich der öffentlichen Information und stellt keine Rechts-, Steuer- oder Finanzberatung dar. DMD verspricht keine garantierten Renditen, keine garantierte Liquidität und keinen garantierten zukünftigen Wert. Digitale Assets sind mit Risiken verbunden, und jeder Nutzer bleibt für seine eigenen Entscheidungen verantwortlich.</p>
           </section>
         </div>
 
-        <footer>
-          © 2026 Die Mark Digital (DMD) • Public Reference Layer
-        </footer>
+        <footer>© 2026 Die Mark Digital (DMD) • Public Reference Layer</footer>
       </div>
     </section>
   </main>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const status = document.getElementById("copy-status");
+      const savedLang = localStorage.getItem("dmd_lang");
+      const initialLang = savedLang === "de" || savedLang === "en" ? savedLang : "en";
+
+      function setLanguage(lang) {
+        root.setAttribute("data-lang", lang);
+        root.setAttribute("lang", lang);
+        localStorage.setItem("dmd_lang", lang);
+        document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+          btn.setAttribute("aria-pressed", String(btn.getAttribute("data-set-lang") === lang));
+        });
+      }
+
+      setLanguage(initialLang);
+
+      document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+        btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-set-lang")));
+      });
+
+      document.querySelectorAll("[data-copy-target]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const value = btn.getAttribute("data-copy-target");
+          const oldHtml = btn.innerHTML;
+
+          try {
+            await navigator.clipboard.writeText(value);
+            const copiedText = root.getAttribute("data-lang") === "de" ? "Kopiert" : "Copied";
+            btn.textContent = copiedText;
+            if (status) status.textContent = copiedText;
+            setTimeout(() => { btn.innerHTML = oldHtml; }, 1200);
+          } catch (err) {
+            const failedText = root.getAttribute("data-lang") === "de" ? "Kopieren fehlgeschlagen" : "Copy failed";
+            btn.textContent = failedText;
+            if (status) status.textContent = failedText;
+            setTimeout(() => { btn.innerHTML = oldHtml; }, 1200);
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

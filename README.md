@@ -208,7 +208,7 @@ Technical changes, market movements, third-party failures, smart contract risks 
 ## 📬 Kontakt
 
 Email: [diemarkdigital@gmail.com](mailto:diemarkdigital@gmail.com)
-
+- [DMD Handbook / Handbuch](./DMD_Handbuch_Die_Mark_Digital_DE_EN_FR.pdf)
 ---
 
 <p align="center">

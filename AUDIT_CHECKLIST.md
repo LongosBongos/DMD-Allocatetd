@@ -1,114 +1,168 @@
 # 🔍 Die Mark Digital (DMD) – Smart Contract Audit Checklist
 
-**Program ID:** `EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro`  
-**Token Standard:** SPL Token 2020  
-**Network:** Solana Mainnet  
-**Date:** 2025-10-05  
+**Program ID:** `EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro`
+**Token Standard:** SPL Token
+**Network:** Solana Mainnet
+**Date:** 2025-10-05
 **Audited by:** DMD Founder (Pre-Audit Self-Check)
+
+---
+
+## Important Notice
+
+This document is a public pre-audit checklist and founder self-check for transparency purposes.
+
+It documents reviewed contract areas, known mechanics, public references and current project assumptions. It is not a replacement for an independent external security audit.
+
+Users, reviewers and contributors should verify the public source, IDL, on-chain state and project references independently before interacting with DMD.
 
 ---
 
 ## 🧩 1. Overflow & Arithmetic Checks
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| `u64` / `BN` Berechnungen | Alle Rechenoperationen (SOL-Beiträge, Rewards, Penalties) werden in `u64` bzw. `anchor.BN` ausgeführt. Overflow-Checks sind in Release-Build aktiviert (`overflow-checks = true`). | ✅ Passed |
-| Reward & Penalty Skalierung | Rewards und Penalties nutzen Prozent-basierte Multiplikation mit Division durch konstante Basiswerte (keine Division durch Variablen). | ✅ Passed |
-| Treasury-Splits | Splits (60/40, 65/35) werden über feste Ganzzahl-Multiplikation durchgeführt; kein Rundungsfehler durch Float. | ✅ Passed |
+| Test                        | Beschreibung                                                                                                                                                                                       | Ergebnis |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `u64` / `BN` Berechnungen   | Rechenoperationen für SOL-Beiträge, Rewards, Penalties und Limits werden mit Integer-basierten Datentypen verarbeitet. Overflow-Checks sind im Release-Build aktiviert (`overflow-checks = true`). | ✅ Passed |
+| Reward & Penalty Skalierung | Rewards und Penalties nutzen prozentbasierte Multiplikation mit Division durch konstante Basiswerte.                                                                                               | ✅ Passed |
+| Treasury-Splits             | Splits werden über feste Ganzzahl-Multiplikation durchgeführt; keine Float-Berechnung.                                                                                                             | ✅ Passed |
+| Contribution Limits         | Mindest- und Maximalbeiträge werden getrennt geprüft.                                                                                                                                              | ✅ Passed |
 
 ---
 
 ## 🧾 2. Signer & Authority Validation
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| Founder-Signaturen | Alle Founder-Operations (`initialize`, `set_manual_price`, `toggle_public_sale`, `whitelist_add`) verlangen Signer-Prüfung auf Founder Wallet `GsnjzePaFi2fq4wBYDuRYSfXiMQ1NsFmAYVdhvKUWoXm`. | ✅ Passed |
-| Treasury Authority | Treasury (`9fAjEDdFjmGwwxh5fyUhDsbyg8RwE7TR12Y25iD4FCoS`) wird nur bei `sell_dmd_v2` oder `swap_exact_dmd_for_sol` als Signer verwendet. | ✅ Passed |
-| Buyer Auth | Käufertransaktionen (`buy_dmd`, `claim_reward`, `sell_dmd_v2`, `swap_exact_sol_for_dmd`) prüfen immer auf `buyer.is_signer`. | ✅ Passed |
-| PDA-Ownership | Vault- und BuyerState-PDAs validieren Seeds (`vault`, `buyer`) gegen Program ID. | ✅ Passed |
+| Test                 | Beschreibung                                                                                                                                                                          | Ergebnis |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Founder-Signaturen   | Founder-Operationen wie `initialize`, `set_manual_price`, `toggle_public_sale` und `whitelist_add` verlangen eine Signer-Prüfung auf die definierte Founder-/Protocol-Owner-Adresse.  | ✅ Passed |
+| Treasury Authority   | Treasury-bezogene Operationen verlangen die jeweils definierte Treasury-/Authority-Struktur gemäß Programmlogik.                                                                      | ✅ Passed |
+| Buyer Auth           | Käufertransaktionen wie `buy_dmd`, `claim_reward`, `sell_dmd_v2`, `swap_exact_sol_for_dmd` oder vergleichbare Nutzerfunktionen prüfen die Nutzer-/Buyer-Signatur gemäß Programmlogik. | ✅ Passed |
+| PDA-Ownership        | Vault- und BuyerState-PDAs validieren Seeds gegen die Program ID.                                                                                                                     | ✅ Passed |
+| Authority Separation | Founder, Treasury, Vault und BuyerState sind als getrennte Rollen/Strukturen dokumentiert.                                                                                            | ✅ Passed |
 
 ---
 
 ## 💰 3. Treasury & Split Logic
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| Presale-Split | 60 % Founder / 40 % Treasury (SOL-Einzahlungen im Presale). | ✅ Passed |
-| Buy/Sell Fees | Buy-Fee 16.5 %, Sell-Fee 17.5 %; Split Founder 65 % / Treasury 35 %. | ✅ Passed |
-| Reward Pool | Treasury finanziert Rewards ausschließlich aus Netto-Gebühren. Kein Mint-Inflation-Mechanismus. | ✅ Passed |
-| Withdraws | Keine externe `withdraw()`-Funktion implementiert. Nur Founder-kontrollierte Treasury-Verwendung möglich. | ✅ Passed |
+| Test                | Beschreibung                                                                                                                                              | Ergebnis     |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Presale-Split       | Presale-/Legacy-Logik enthält definierte Split-Mechaniken für Founder und Treasury.                                                                       | ✅ Documented |
+| Buy/Sell Fees       | Buy- und Sell-Fee-Mechaniken sind im Contract und in der Projektdokumentation als Regelbestandteil dokumentiert.                                          | ✅ Documented |
+| Reward Pool         | Rewards basieren auf definierter Treasury-/Vault-Logik. Es wird kein unbegrenzter Mint-Inflation-Mechanismus als Reward-Quelle dokumentiert.              | ✅ Passed     |
+| Withdraws           | Keine offene externe `withdraw()`-Funktion für beliebige Nutzer dokumentiert. Treasury-Verwendung bleibt an definierte Rollen und Programmlogik gebunden. | ✅ Passed     |
+| Treasury Dependency | Sell- und Reward-Funktionen können vom aktiven Systemzustand, Treasury-Zustand und Vault-Bestand abhängen.                                                | ✅ Documented |
 
 ---
 
 ## 🏦 4. Vault / BuyerState Integrity
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| PDA Seeds | Vault-PDA: `[b"vault"]` → `AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF` | ✅ Passed |
-| BuyerState-PDA | `[b"buyer", vault, buyer]` korrekt implementiert. | ✅ Passed |
-| Rent-Exemption | Accounts (`Vault`, `BuyerState`) werden mit `SystemProgram` & `RentExempt` erstellt. | ✅ Passed |
-| Data Layout | Alignments: 8-Byte Discriminator + Struct-Felder (pubkey, u64, bool). Keine Padding-Fehler. | ✅ Passed |
+| Test              | Beschreibung                                                                                                           | Ergebnis |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------- | -------- |
+| Vault PDA         | Vault-PDA ist öffentlich dokumentiert: `AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF`.                                 | ✅ Passed |
+| BuyerState-PDA    | BuyerState-Struktur nutzt definierte Seeds zur nutzerbezogenen Statusverwaltung.                                       | ✅ Passed |
+| Rent-Exemption    | Accounts wie `Vault` und `BuyerState` werden gemäß Solana-/Anchor-Accountmodell erstellt.                              | ✅ Passed |
+| Data Layout       | Account-Strukturen sind Anchor-kompatibel aufgebaut und enthalten definierte Felder für Status, Beträge und Zeitlogik. | ✅ Passed |
+| Public References | Relevante öffentliche Referenzen werden im README und in der Public Reference Page dokumentiert.                       | ✅ Passed |
 
 ---
 
 ## 🪙 5. Token Logic & Supply Control
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| Mint Supply | 150 000 000 DMD initial über Founder-Wallet gemintet. | ✅ Passed |
-| Decimals | `9` – standard SPL-Kompatibilität. | ✅ Passed |
-| Token Standard | SPL Token 2020 – kein Legacy (2020 kompatibles Mint). | ✅ Passed |
-| Vault-ATA | Vault besitzt eigenes ATA für DMD – Token-Transfers ausschließlich über Program Signer. | ✅ Passed |
+| Test                 | Beschreibung                                                                                           | Ergebnis     |
+| -------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
+| Mint Supply          | Gesamtmenge ist öffentlich dokumentiert: `150,000,000 DMD`.                                            | ✅ Passed     |
+| Decimals             | Decimals sind öffentlich dokumentiert: `9`.                                                            | ✅ Passed     |
+| Token Standard       | DMD nutzt SPL-Token-Logik auf Solana.                                                                  | ✅ Passed     |
+| Vault-ATA            | Vault-/Token-Bestände werden über definierte Vault-/ATA-Strukturen verwaltet.                          | ✅ Passed     |
+| Mint / Freeze Status | Mint- und Freeze-Authority-Status sind in den öffentlichen Projekt- und Metadata-Referenzen zu prüfen. | ✅ Documented |
 
 ---
 
 ## ⚙️ 6. Reward / Penalty Mechanism
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| Reward v2 | `claim_reward_v2` nutzt echten SPL-Transfer Vault→Buyer. | ✅ Passed |
-| Hold Duration | 30-Tage-Lock für Verkäufe (HOLD_DURATION). | ✅ Passed |
-| Claim Interval | 90-Tage-Reward-Intervall (REWARD_INTERVAL). | ✅ Passed |
-| Penalty Tier | Dynamische Staffelung: kleine Beträge 10 %, hohe 17.5 %. | ✅ Passed |
+| Test                 | Beschreibung                                                                                  | Ergebnis |
+| -------------------- | --------------------------------------------------------------------------------------------- | -------- |
+| Reward Logic         | Reward-Funktionen basieren auf definierter Vault-/Treasury- und Zeitlogik.                    | ✅ Passed |
+| Hold Duration        | Haltefrist-Logik ist als Schutz- und Regelmechanik dokumentiert.                              | ✅ Passed |
+| Claim Interval       | Reward-/Claim-Intervalle sind als zeitbasierte Logik dokumentiert.                            | ✅ Passed |
+| Penalty Logic        | Penalty-Mechaniken sind als Schutz gegen kurzfristige oder regelwidrige Nutzung dokumentiert. | ✅ Passed |
+| No Guaranteed Return | Rewards werden nicht als garantierte Rendite oder garantierter Anspruch dargestellt.          | ✅ Passed |
 
 ---
 
 ## 🧰 7. Whitelist & Public Sale
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| Auto-Whitelist | `auto_whitelist_self` aktiv für Käufer ≥ 0.5 SOL. | ✅ Passed |
-| Manual Whitelist | Nur Founder darf Whitelist-Status manuell setzen. | ✅ Passed |
-| Public Sale Toggle | Founder kann Public Sale aktivieren/deaktivieren (`toggle_public_sale`). | ✅ Passed |
+| Test                    | Beschreibung                                                                                                | Ergebnis     |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- | ------------ |
+| Legacy Self-Whitelist   | `auto_whitelist_self` gehört zur früheren Presale-/Access-Struktur und bleibt zur Transparenz dokumentiert. | ✅ Documented |
+| Public Sale Mode        | Public Sale ist der relevante aktuelle Zugangsmodus gemäß dokumentiertem Projektstatus.                     | ✅ Documented |
+| Buy Limits              | Mindestkauf: `0.1 SOL`. Maximalkauf: `100 SOL`.                                                             | ✅ Passed     |
+| Access Logic Separation | Kaufgrenzen und Legacy-Whitelist-Balance-Checks sind getrennte Mechanismen.                                 | ✅ Clarified  |
+| Manual Whitelist        | Manuelle Whitelist-Kontrolle bleibt an die definierte autorisierte Projektrolle gebunden.                   | ✅ Passed     |
+| Public Sale Toggle      | Public Sale kann gemäß definierter Programmlogik aktiviert oder deaktiviert werden.                         | ✅ Passed     |
+
+### Clarification
+
+The whitelist balance check and the minimum buy amount are not the same mechanism.
+
+The minimum buy amount defines the required SOL contribution for a buy transaction.
+The legacy whitelist balance check belongs to the earlier presale/access structure.
+
+While public sale mode is active, public sale status is the relevant user access model. Legacy whitelist logic remains documented for transparency and should not be confused with current public sale buy limits.
+
+This is not classified as a critical funds-at-risk issue. It is documented as a transparency and communication clarification so users can understand the difference between legacy whitelist logic, public sale mode and active buy limits.
 
 ---
 
 ## 🧾 8. Metadata & Transparency
 
-| Datei | Beschreibung | Ergebnis |
-|--------|---------------|-----------|
-| `metadata.json` | Enthält Mint, Vault, Treasury, Founder, Pool, Socials. | ✅ Passed |
-| `security.txt` | Kontaktadresse + rechtlicher Disclaimer. | ✅ Passed |
-| `policy.html` | Zweisprachiger Disclaimer (DE/EN) verfügbar via GitHub Pages. | ✅ Passed |
-| `LICENSE` | MIT License aktiv. | ✅ Passed |
-| `README.md` | Logo, Projektinfos, Socials & Disclaimer. | ✅ Passed |
+| Datei                                  | Beschreibung                                                    | Ergebnis |
+| -------------------------------------- | --------------------------------------------------------------- | -------- |
+| `metadata.json` / `metadata.dmd2.json` | Enthält öffentliche Token-, Projekt- und Referenzinformationen. | ✅ Passed |
+| `security.txt`                         | Enthält öffentlichen Sicherheitskontakt und Security-Referenz.  | ✅ Passed |
+| `policy.html`                          | Enthält Disclaimer, Risiko- und Projektinformationen.           | ✅ Passed |
+| `LICENSE`                              | MIT License vorhanden.                                          | ✅ Passed |
+| `README.md`                            | Enthält Logo, Projektinfos, Referenzen, Status und Disclaimer.  | ✅ Passed |
+| `index.html`                           | Öffentliche Public Reference Page für DMD vorhanden.            | ✅ Passed |
 
 ---
 
 ## 🧠 9. Security & Best Practices
 
-| Test | Beschreibung | Ergebnis |
-|------|---------------|-----------|
-| Anchor Version | 0.31.1 – stabiler Release mit IDL-Kompatibilität. | ✅ Passed |
-| Solana Version | 2.3.0 – kompatibel zu SPL 2020. | ✅ Passed |
-| Wallet Protection | Founder-/Treasury-Keys lokal gesichert (nicht in Repo). | ✅ Passed |
-| External Calls | Keine Cross-Program Invocations außer System/Token Program. | ✅ Passed |
-| Re-Initialization | Doppelte `initialize()` ausgeschlossen durch Vault-PDA Check. | ✅ Passed |
+| Test                   | Beschreibung                                                                                                 | Ergebnis |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------ | -------- |
+| Anchor Version         | Anchor-Version ist im öffentlichen Projektkontext dokumentiert und build-kompatibel.                         | ✅ Passed |
+| Solana Version         | Solana-Version ist im Build-/Verification-Kontext dokumentiert.                                              | ✅ Passed |
+| Wallet Protection      | Private Wallet-Dateien, `.env`-Dateien und sensible Schlüssel sind nicht Teil des öffentlichen Repositories. | ✅ Passed |
+| External Calls         | Keine unnötigen externen Programmaufrufe außerhalb definierter System-/Token-Programmlogik dokumentiert.     | ✅ Passed |
+| Re-Initialization      | Doppelte Initialisierung wird durch definierte PDA-/Account-Logik verhindert.                                | ✅ Passed |
+| Public-Safe Repository | Das Repository enthält public-safe Source-, IDL-, Policy-, Audit- und Security-Referenzen.                   | ✅ Passed |
+
+---
+
+## 🧪 10. Known Limitations / Review Notes
+
+| Bereich             | Hinweis                                                                                                                      | Status         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| External Audit      | Dieses Dokument ist ein Founder Pre-Audit Self-Check und ersetzt kein externes Security-Audit.                               | ⚠️ Recommended |
+| Upgrade Authority   | Upgrade Authority ist laut öffentlichem Status nicht entfernt. Änderungen am Programm bleiben dadurch grundsätzlich möglich. | ⚠️ Transparent |
+| Sell Status         | Sell Live ist laut dokumentiertem Status `false` und kann vom aktiven Systemzustand abhängen.                                | ✅ Documented   |
+| Treasury Dependency | Treasury-, Vault-, Reward- und Sell-Funktionen können von Bestand, Authority und Systemzustand abhängen.                     | ✅ Documented   |
+| Legacy Whitelist    | Legacy Self-Whitelist ist dokumentiert, aber nicht als aktueller Hauptzugang während Public Sale zu verstehen.               | ✅ Clarified    |
 
 ---
 
 ## ✅ Gesamtbewertung
 
-**Audit Status:** 🟢 *Alle Core-Module funktionsfähig und sicher (Pre-Audit bestanden)*  
-**Empfehlung:** Optionales externes Code-Review durch Anchor Security oder Helius Audit Services.  
-**Letztes Update:** 2025-10-05  
+**Audit Status:** 🟡 Public Pre-Audit Self-Check documented
+**Core Status:** Core mechanics and public references reviewed in the founder self-check
+**Risk Status:** No critical funds-at-risk issue identified in this checklist
+**Recommendation:** Independent external code review remains recommended before presenting DMD as externally audited
+**Letztes Update:** 2025-10-05
+
+---
+
+## Final Note
+
+DMD provides public references, a verified build record, public-safe source material and a transparent checklist structure.
+
+This checklist is intended to support transparency, documentation quality and public review. It should be read together with the README, Policy, Security.txt, Public Reference Page, IDL and current on-chain state.

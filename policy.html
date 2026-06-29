@@ -1,58 +1,369 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>DMD – Disclaimer & Policy</title>
+  <meta
+    name="description"
+    content="Disclaimer, Policy and public risk information for Die Mark Digital (DMD), a Solana-based digital treasury and value project."
+  />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Die Mark Digital (DMD)" />
+  <link rel="canonical" href="https://longosbongos.github.io/DMD-Allocatetd/policy.html" />
+
+  <link rel="icon" type="image/png" href="./DMD.png" />
+  <meta name="theme-color" content="#06080c" />
+
   <style>
-    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.6; }
-    h1, h2 { color: #333; }
-    .section { margin-bottom: 40px; }
+    :root {
+      --bg: #06080c;
+      --panel: #11161d;
+      --panel2: #161c24;
+      --text: #e6edf3;
+      --muted: #aab2bd;
+      --gold: #d4af37;
+      --gold2: #f1cc5b;
+      --border: rgba(255,255,255,0.09);
+      --link: #7cc4ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 16% 8%, rgba(212,175,55,0.16), transparent 32%),
+        radial-gradient(circle at 86% 14%, rgba(241,204,91,0.08), transparent 30%),
+        linear-gradient(180deg, #030407 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .wrap {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 70px;
+    }
+
+    .panel {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+        linear-gradient(140deg, var(--panel), var(--panel2));
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.42);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(212,175,55,0.45);
+      box-shadow: 0 0 24px rgba(212,175,55,0.22);
+    }
+
+    .brand-text {
+      color: var(--gold2);
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: var(--gold2);
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.032);
+    }
+
+    .notice {
+      border-color: rgba(212,175,55,0.28);
+      background: rgba(212,175,55,0.055);
+    }
+
+    .danger {
+      border-color: rgba(255,204,102,0.25);
+      background: rgba(255,204,102,0.045);
+    }
+
+    .meta {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .meta div {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(0,0,0,0.16);
+      word-break: break-word;
+    }
+
+    code {
+      color: #f5d879;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95em;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 10px 0;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 22px, 960px);
+        padding-top: 22px;
+      }
+
+      .panel {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .section {
+        padding: 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Die Mark Digital (DMD) – Disclaimer & Policy</h1>
+  <main class="wrap">
+    <section class="panel">
+      <div class="brand">
+        <img src="./DMD.png" alt="Die Mark Digital Logo" />
+        <div class="brand-text">DMD Policy Reference</div>
+      </div>
 
-  <div class="section">
-    <h2>Projekt-Infos</h2>
-    <p>
-      Program-ID: <code>EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro</code><br>
-      Mint: <code>3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5</code><br>
-      Vault-PDA: <code>AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF</code><br>
-      Pool: <code>6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2</code>
-    </p>
-  </div>
+      <h1>Die Mark Digital (DMD) – Disclaimer & Policy</h1>
 
-  <div class="section">
-    <h2>Disclaimer (Deutsch)</h2>
-    <p>
-      Die Mark Digital (DMD) ist ein Community- und Treasury-basiertes Projekt.<br>
-      Es handelt sich <strong>nicht</strong> um ein gesetzliches Zahlungsmittel, eine Aktie oder ein Wertpapier.<br>
-      Anleger handeln eigenverantwortlich und tragen das volle Risiko.<br>
-      Es bestehen keine Rückzahlungsansprüche gegenüber dem Founder oder der Treasury.<br>
-      Alle Einlagen in SOL oder DMD sind final und können nicht rückerstattet werden.<br>
-      Die Nutzung von DMD erfolgt ausschließlich auf eigenes Risiko.<br>
-      Der Founder übernimmt keinerlei Haftung für Verluste, Fehlverhalten Dritter oder technische Fehler.
-    </p>
-  </div>
+      <p class="muted">
+        This page provides public policy, disclaimer and risk information for Die Mark Digital (DMD).
+        It is intended as a transparent reference for users, reviewers, partners and interested parties.
+      </p>
 
-  <div class="section">
-    <h2>Disclaimer (English)</h2>
-    <p>
-      Die Mark Digital (DMD) is a community- and treasury-based project.<br>
-      It is <strong>not</strong> a legal tender, stock, or security.<br>
-      Investors act on their own responsibility and bear the full risk.<br>
-      There are no repayment claims against the Founder or the Treasury.<br>
-      All deposits in SOL or DMD are final and cannot be refunded.<br>
-      The use of DMD is strictly at your own risk.<br>
-      The Founder assumes no liability for losses, misconduct by third parties, or technical errors.
-    </p>
-  </div>
+      <div class="section">
+        <h2>Projekt-Infos / Project Information</h2>
 
-  <div class="section">
-    <h2>Kontakt / Contact</h2>
-    <p>
-      Email: <a href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a>
-    </p>
-  </div>
+        <div class="meta">
+          <div><strong>Program ID:</strong> <code>EDY4bp4fXWkAJpJhXUMZLL7fjpDhpKZQFPpygzsTMzro</code></div>
+          <div><strong>Mint:</strong> <code>3rCZT3Xw6jvU4JWatQPsivS8fQ7gV7GjUfJnbTk9Ssn5</code></div>
+          <div><strong>Vault PDA:</strong> <code>AfbZG6WHh462YduimCUmAvVi3jSjGfkaQCyEnYPeXwPF</code></div>
+          <div><strong>Pool:</strong> <code>6xBMvGzomHgPdWtD3V4JQ8rqji5EWtFDDoAyQhYsVVd2</code></div>
+          <div><strong>Public Reference Page:</strong> <a href="https://longosbongos.github.io/DMD-Allocatetd/">https://longosbongos.github.io/DMD-Allocatetd/</a></div>
+          <div><strong>Investor App:</strong> <a href="https://longosbongos.github.io/Investor_App_DMD/">https://longosbongos.github.io/Investor_App_DMD/</a></div>
+          <div><strong>Repository:</strong> <a href="https://github.com/LongosBongos/DMD-Allocatetd">https://github.com/LongosBongos/DMD-Allocatetd</a></div>
+        </div>
+      </div>
+
+      <div class="section notice">
+        <h2>Sale Access Notice</h2>
+
+        <p>
+          DMD may contain legacy whitelist and access logic from earlier presale structures.
+          Current public access depends on the active on-chain system state.
+        </p>
+
+        <p>
+          Public sale mode, buy limits, whitelist logic, claim functions and sell status are separate mechanisms.
+          They should not be understood as one single condition.
+        </p>
+
+        <ul>
+          <li>The minimum buy amount defines the SOL contribution required for a buy transaction.</li>
+          <li>Legacy whitelist logic belongs to an earlier presale/access structure and remains documented for transparency.</li>
+          <li>Public sale access depends on the active system state and current project configuration.</li>
+          <li>Sell status may depend on on-chain state, treasury configuration, vault balance and protocol rules.</li>
+        </ul>
+
+        <p>
+          Users are responsible for reviewing the current public references, Investor App state and on-chain system status
+          before interacting with DMD.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Disclaimer (Deutsch)</h2>
+
+        <p>
+          Die Mark Digital (DMD) ist ein Solana-basiertes digitales Projekt mit Treasury-, Vault- und Regel-Logik.
+          Diese Seite stellt öffentliche Projektinformationen, Referenzen und Risikohinweise bereit.
+        </p>
+
+        <p>
+          DMD ist kein gesetzliches Zahlungsmittel und wird auf dieser Seite nicht als Aktie, Wertpapier oder garantiertes Anlageprodukt dargestellt.
+          Eine rechtliche Einordnung kann je nach Rechtsordnung, Einzelfall und zukünftiger regulatorischer Entwicklung unterschiedlich ausfallen.
+        </p>
+
+        <p>
+          Diese Informationen stellen keine Rechtsberatung, Steuerberatung, Finanzberatung oder Anlageberatung dar.
+          Jede Nutzung von DMD erfolgt eigenverantwortlich und auf eigenes Risiko.
+        </p>
+
+        <p>
+          Es bestehen keine garantierten Ansprüche auf Rückzahlung, Erstattung, Rendite, Liquidität oder zukünftigen Wert.
+          Digitale Assets sind volatil und können vollständig oder teilweise an Wert verlieren.
+        </p>
+
+        <p>
+          On-Chain-Transaktionen sind grundsätzlich final und können je nach Blockchain-Status, Wallet, Drittanbieter oder Netzwerkbedingungen
+          nicht rückgängig gemacht werden. Nutzer sollten Transaktionen sorgfältig prüfen, bevor sie diese signieren.
+        </p>
+
+        <p>
+          Der Founder, das Projekt, beteiligte Entwickler oder öffentliche Kommunikationskanäle übernehmen keine Garantie für Marktpreise,
+          zukünftige Entwicklung, Drittanbieter-Dienste, Wallet-Fehler, Netzwerkprobleme, Smart-Contract-Risiken oder Fehlverhalten Dritter.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Disclaimer (English)</h2>
+
+        <p>
+          Die Mark Digital (DMD) is a Solana-based digital project with treasury, vault and rule-based mechanics.
+          This page provides public project information, references and risk disclosures.
+        </p>
+
+        <p>
+          DMD is not legal tender and is not presented on this page as a stock, security or guaranteed investment product.
+          Legal classification may vary depending on jurisdiction, individual circumstances and future regulatory developments.
+        </p>
+
+        <p>
+          This information does not constitute legal, tax, financial or investment advice.
+          Any use of DMD is entirely at the user's own responsibility and risk.
+        </p>
+
+        <p>
+          There are no guaranteed claims for repayment, refund, return, liquidity or future value.
+          Digital assets are volatile and may lose part or all of their value.
+        </p>
+
+        <p>
+          On-chain transactions are generally final and may not be reversible depending on blockchain state, wallet behavior,
+          third-party providers or network conditions. Users should carefully review transactions before signing them.
+        </p>
+
+        <p>
+          The Founder, the project, contributors or public communication channels do not guarantee market prices, future development,
+          third-party services, wallet behavior, network availability, smart contract risks or misconduct by third parties.
+        </p>
+      </div>
+
+      <div class="section danger">
+        <h2>Risk Notice / Risikohinweis</h2>
+
+        <p>
+          Digital assets involve significant risk. Market prices can move quickly and unpredictably.
+          Technical issues, smart-contract behavior, wallet errors, network congestion, user mistakes, third-party failures
+          or malicious actors may affect access, usage, liquidity and value.
+        </p>
+
+        <p>
+          Users should only interact with DMD after independently reviewing the public references, the Investor App status,
+          the repository, the policy, the security reference and the relevant on-chain information.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Security & Responsible Disclosure</h2>
+
+        <p>
+          Security-related reports can be sent to:
+          <a href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a>
+        </p>
+
+        <p>
+          Public security reference:
+          <a href="https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt">
+            https://longosbongos.github.io/DMD-Allocatetd/.well-known/security.txt
+          </a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Kontakt / Contact</h2>
+
+        <p>
+          Email: <a href="mailto:diemarkdigital@gmail.com">diemarkdigital@gmail.com</a>
+        </p>
+
+        <p>
+          Telegram:
+          <a href="https://t.me/diemarkDigitaloffiziell">https://t.me/diemarkDigitaloffiziell</a>
+        </p>
+
+        <p>
+          X / Twitter:
+          <a href="https://x.com/DieMarkDigital">https://x.com/DieMarkDigital</a>
+        </p>
+      </div>
+
+      <footer>
+        © 2026 Die Mark Digital (DMD) • Disclaimer & Policy Reference
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
